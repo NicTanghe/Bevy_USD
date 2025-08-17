@@ -47,41 +47,58 @@ fn triangulate(
 }
 
 pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
-    let positions: Vec<Vec3> = mesh.positions.iter().map(|p| Vec3::from(*p)).collect();
+    // positions (vertex array)
+    let positions_vtx: Vec<Vec3> = mesh.positions.iter().map(|&p| Vec3::from(p)).collect();
 
-    let normals: Vec<Vec3> = match &mesh.normals {
-        Some(n) => n.iter().map(|nn| Vec3::from(*nn)).collect(),
-        None => Vec::new(),
+    // face indices (to vertex positions)
+    let fv_idx: Vec<usize> = mesh.face_vertex_indices.iter().map(|&i| i as usize).collect();
+
+    // quick sanity checks (turn into proper errors if you prefer)
+    let vtx_len = positions_vtx.len();
+    if let Some(bad) = fv_idx.iter().position(|&i| i >= vtx_len) {
+        panic!(
+            "face_vertex_indices[{}] = {} out of range (positions.len() = {})",
+            bad, fv_idx[bad], vtx_len
+        );
+    }
+    let sum_counts: usize = mesh.face_vertex_counts.iter().sum();
+    debug_assert_eq!(
+        sum_counts, fv_idx.len(),
+        "sum(face_vertex_counts) != face_vertex_indices.len()"
+    );
+
+    // expand to wedge-local attributes (one per face-vertex)
+    let wedge_positions: Vec<Vec3> = fv_idx.iter().map(|&i| positions_vtx[i]).collect();
+
+    let wedge_normals: Vec<Vec3> = match &mesh.normals {
+        // already per-wedge
+        Some(n) if n.len() == fv_idx.len() =>
+            n.iter().map(|&nn| Vec3::from(nn)).collect(),
+        // per-vertex -> expand by indices
+        Some(n) if n.len() == vtx_len =>
+            fv_idx.iter().map(|&i| Vec3::from(n[i])).collect(),
+        // missing / unexpected -> fallback
+        _ => vec![Vec3::Y; wedge_positions.len()],
     };
 
-    let uvs: Vec<Vec2> = match &mesh.uvs {
-        Some(uvs) => uvs.iter().map(|uv| Vec2::from(*uv)).collect(),
-        None => Vec::new(),
+    let wedge_uvs: Vec<Vec2> = match &mesh.uvs {
+        // already per-wedge
+        Some(uv) if uv.len() == fv_idx.len() =>
+            uv.iter().map(|&u| Vec2::from(u)).collect(),
+        // per-vertex -> expand by indices
+        Some(uv) if uv.len() == vtx_len =>
+            fv_idx.iter().map(|&i| Vec2::from(uv[i])).collect(),
+        // missing / unexpected -> fallback
+        _ => vec![Vec2::ZERO; wedge_positions.len()],
     };
 
-    let wedge_positions: Vec<Vec3> = mesh
-        .face_vertex_indices
-        .iter()
-        .map(|&i| positions[i])
-        .collect();
+    // sequential wedge ids for triangulation fan
+    let wedge_ids: Vec<u32> = (0..wedge_positions.len() as u32).collect();
 
-    let wedge_normals: Vec<Vec3> = if !normals.is_empty() {
-        normals
-    } else {
-        vec![Vec3::Y; wedge_positions.len()] // fallback normal
-    };
-
-    let wedge_uvs: Vec<Vec2> = if !uvs.is_empty() {
-        uvs
-    } else {
-        vec![Vec2::ZERO; wedge_positions.len()] // fallback uv
-    };
-
-    let wedge_indices: Vec<u32> = (0..wedge_positions.len() as u32).collect();
-
+    // triangulate using wedge-local data
     let (flat_positions, flat_normals, flat_uvs, tri_indices) = triangulate(
         &mesh.face_vertex_counts,
-        &wedge_indices,
+        &wedge_ids,
         &wedge_positions,
         &wedge_normals,
         &wedge_uvs,
@@ -89,11 +106,10 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
 
     Mesh::new(PrimitiveTopology::TriangleList, RenderAssetUsages::default())
         .with_inserted_attribute(Mesh::ATTRIBUTE_POSITION, flat_positions)
-        .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0, flat_uvs)
-        .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL, flat_normals)
+        .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL,   flat_normals)
+        .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0,     flat_uvs)
         .with_inserted_indices(Indices::U32(tri_indices))
 }
-
 /// Convert a Vec<MeshData> into a Vec<Mesh>
 pub fn meshdata_vec_to_bevy(meshes: Vec<MeshData>) -> Vec<Mesh> {
     meshes.into_iter().map(|m| meshdata_to_bevy(&m)).collect()
