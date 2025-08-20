@@ -7,7 +7,10 @@ use usdish::{meshdata_to_bevy, spawn_custom_mesh};
 mod openRsLoader;
 use openRsLoader::fetch_stage_usd;
 
-use bevy::prelude::*;
+use bevy::{
+    prelude::*,
+    render::mesh::MeshTag
+};
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
 fn main() {
@@ -32,12 +35,32 @@ fn setup(
     ));
 
     // import USD custom type
-    let (custom_meshes, _instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
+    let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
+
     //convert to bevy type
     let bevys_meshes: Vec<Mesh> = custom_meshes
         .into_iter()
         .map(|m| meshdata_to_bevy(&m))
         .collect();
+
+
+    // spawn instanced meshes
+    for (index, inst) in instanced_meshes.iter().enumerate() {
+        let mesh_handle = meshes.add(meshdata_to_bevy(&inst.mesh));
+        let material_handle = materials.add(Color::srgb(0.7, 0.7, 0.7)); // or derive from USD
+
+        for (index, pos) in inst.positions.iter().enumerate() {
+            commands.spawn((
+                Mesh3d(mesh_handle.clone()),
+                MeshMaterial3d(material_handle.clone()),
+                MeshTag(1),
+                Transform::from_translation(Vec3::from(*pos)),
+            ));
+        }
+    }
+
+
+
 
     // Spawn each one
     for custom_mesh in bevys_meshes {

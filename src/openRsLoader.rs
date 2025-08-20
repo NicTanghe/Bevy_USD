@@ -41,7 +41,7 @@ fn collect_leaves_and_instancers(stage: &usd::Stage) -> (Vec<sdf::Path>, Vec<sdf
             .children()
             .map(|c| c.path().clone())
             .filter(|cp| !is_in_prototypes_subtree(cp))
-            .collect();
+    .collect();
 
         if child_paths.is_empty() {
             if seen_leaf.insert(p.clone()) {
@@ -357,6 +357,14 @@ pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>){
         println!("  proto_indices: {:?}", proto_indices);
         
         let positions_array: vt::Array<gf::Vec3f> = instancer.positions_attr().get();
+
+        //NOTE 
+        //transforms are split into positions orients and scales here. so get them seperately
+        //TODO
+        //scales
+        //transforms
+
+
         let positions: Vec<[f32; 3]> = positions_array
             .iter()
             .map(|p| [p.x, p.y, p.z])
