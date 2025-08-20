@@ -1,7 +1,6 @@
-
 use bevy::{
+    math::{vec2, vec3},
     prelude::*,
-    math::{vec3,vec2},
     render::{
         mesh::{Indices, VertexAttributeValues},
         render_asset::RenderAssetUsages,
@@ -9,9 +8,7 @@ use bevy::{
     },
 };
 
-
-use crate::openRsLoader::{MeshData,fetch_stage_usd};
-
+use crate::openRsLoader::{MeshData, fetch_stage_usd};
 
 fn triangulate(
     counts: &[usize],
@@ -51,7 +48,11 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     let positions_vtx: Vec<Vec3> = mesh.positions.iter().map(|&p| Vec3::from(p)).collect();
 
     // face indices (to vertex positions)
-    let fv_idx: Vec<usize> = mesh.face_vertex_indices.iter().map(|&i| i as usize).collect();
+    let fv_idx: Vec<usize> = mesh
+        .face_vertex_indices
+        .iter()
+        .map(|&i| i as usize)
+        .collect();
 
     // quick sanity checks (turn into proper errors if you prefer)
     let vtx_len = positions_vtx.len();
@@ -63,7 +64,8 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     }
     let sum_counts: usize = mesh.face_vertex_counts.iter().sum();
     debug_assert_eq!(
-        sum_counts, fv_idx.len(),
+        sum_counts,
+        fv_idx.len(),
         "sum(face_vertex_counts) != face_vertex_indices.len()"
     );
 
@@ -72,25 +74,32 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
 
     let wedge_normals: Vec<Vec3> = match &mesh.normals {
         // already per-wedge
-        Some(n) if n.len() == fv_idx.len() =>
-            n.iter().map(|&nn| Vec3::from(nn)).collect(),
+        Some(n) if n.len() == fv_idx.len() => n.iter().map(|&nn| Vec3::from(nn)).collect(),
         // per-vertex -> expand by indices
-        Some(n) if n.len() == vtx_len =>
-            fv_idx.iter().map(|&i| Vec3::from(n[i])).collect(),
+        Some(n) if n.len() == vtx_len => fv_idx.iter().map(|&i| Vec3::from(n[i])).collect(),
         // missing / unexpected -> fallback
         _ => vec![Vec3::Y; wedge_positions.len()],
     };
 
-    let wedge_uvs: Vec<Vec2> = match &mesh.uvs {
-        // already per-wedge
-        Some(uv) if uv.len() == fv_idx.len() =>
-            uv.iter().map(|&u| Vec2::from(u)).collect(),
-        // per-vertex -> expand by indices
-        Some(uv) if uv.len() == vtx_len =>
-            fv_idx.iter().map(|&i| Vec2::from(uv[i])).collect(),
-        // missing / unexpected -> fallback
-        _ => vec![Vec2::ZERO; wedge_positions.len()],
+
+    let wedge_uvs: Vec<Vec2> = if let Some(uvs) = &mesh.uvs {
+        if uvs.len() == fv_idx.len() {
+            // already per-wedge
+            uvs.iter().map(|&u| Vec2::from(u)).collect()
+        } else if uvs.len() == vtx_len {
+            // per-vertex → expand
+            fv_idx.iter().map(|&i| Vec2::from(uvs[i])).collect()
+        } else {
+            // fallback
+            vec![Vec2::ZERO; wedge_positions.len()]
+        }
+    } else {
+        // no UVs at all → fallback
+        vec![Vec2::ZERO; wedge_positions.len()]
     };
+
+
+
 
     // sequential wedge ids for triangulation fan
     let wedge_ids: Vec<u32> = (0..wedge_positions.len() as u32).collect();
@@ -104,11 +113,14 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
         &wedge_uvs,
     );
 
-    Mesh::new(PrimitiveTopology::TriangleList, RenderAssetUsages::default())
-        .with_inserted_attribute(Mesh::ATTRIBUTE_POSITION, flat_positions)
-        .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL,   flat_normals)
-        .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0,     flat_uvs)
-        .with_inserted_indices(Indices::U32(tri_indices))
+    Mesh::new(
+        PrimitiveTopology::TriangleList,
+        RenderAssetUsages::default(),
+    )
+    .with_inserted_attribute(Mesh::ATTRIBUTE_POSITION, flat_positions)
+    .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL, flat_normals)
+    .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0, flat_uvs)
+    .with_inserted_indices(Indices::U32(tri_indices))
 }
 /// Convert a Vec<MeshData> into a Vec<Mesh>
 pub fn meshdata_vec_to_bevy(meshes: Vec<MeshData>) -> Vec<Mesh> {
@@ -125,7 +137,6 @@ pub fn meshdata_vec_to_bevy(meshes: Vec<MeshData>) -> Vec<Mesh> {
 //
 //    commands.insert_resource(bevys_meshes);
 //}
-
 
 pub fn spawn_custom_mesh(
     commands: &mut Commands,

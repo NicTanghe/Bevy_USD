@@ -2,13 +2,13 @@
 //! A simple 3D scene with light shining over a cube sitting on a plane.
 
 mod usdish;
-use usdish::{spawn_custom_mesh,meshdata_to_bevy};
+use usdish::{meshdata_to_bevy, spawn_custom_mesh};
 
 mod openRsLoader;
 use openRsLoader::fetch_stage_usd;
 
-use bevy_panorbit_camera::{PanOrbitCamera,PanOrbitCameraPlugin};
 use bevy::prelude::*;
+use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
 fn main() {
     App::new()
@@ -30,21 +30,20 @@ fn setup(
         MeshMaterial3d(materials.add(Color::WHITE)),
         Transform::from_rotation(Quat::from_rotation_x(-std::f32::consts::FRAC_PI_2)),
     ));
-    
+
     // import USD custom type
-    let custom_meshes = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/robberto.usdc");
+    let (custom_meshes, _instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
     //convert to bevy type
     let bevys_meshes: Vec<Mesh> = custom_meshes
         .into_iter()
         .map(|m| meshdata_to_bevy(&m))
         .collect();
 
-    
     // Spawn each one
     for custom_mesh in bevys_meshes {
         spawn_custom_mesh(&mut commands, &mut meshes, &mut materials, custom_mesh);
     }
-        
+
     // light
     commands.spawn((
         PointLight {
@@ -54,15 +53,9 @@ fn setup(
         Transform::from_xyz(4.0, 8.0, 4.0),
     ));
 
-
-    
-
-
-
     // camera
     commands.spawn((
         Transform::from_xyz(-2.5, 4.5, 9.0).looking_at(Vec3::ZERO, Vec3::Y),
         PanOrbitCamera::default(),
     ));
 }
-
