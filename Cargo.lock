@@ -4206,6 +4206,7 @@ dependencies = [
  "bevy",
  "bevy_panorbit_camera",
  "downcast-rs",
+ "glam 0.30.5",
  "log",
  "openusd-rs",
 ]

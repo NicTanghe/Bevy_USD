@@ -168,6 +168,8 @@ fn transform_point_auto(m: &[[f64; 4]; 4], p: [f32; 3]) -> [f32; 3] {
 pub struct InstancedMesh {
     pub mesh: MeshData,
     pub positions: Vec<[f32; 3]>,
+    pub rotations: Vec<[f32;4]>,
+    pub scales: Vec<[f32;3]>
 }
 #[derive(Debug, Clone)]
 pub struct MeshData {
@@ -194,6 +196,11 @@ impl MeshData {
             .collect();
     }
 }
+
+
+//seems to be loading all meshes on all positions instead of just the 1 mesh per thing.
+//makes sence we`re not using proto_indeces
+
 
 fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     let path  = prim.path().clone();
@@ -309,11 +316,11 @@ fn inverse_transpose3x3(m: &[[f64; 4]; 4]) -> [[f64; 3]; 3] {
     ]
 }
 
-pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>){
+pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>) {
     let stage = usd::Stage::open(stagep);
     let (leaves, instancers) = collect_leaves_and_instancers(&stage);
 
-    // meshes
+    // --- direct meshes (non-instanced) ---
     let mut meshes_out = Vec::new();
     for p in &leaves {
         let prim = stage.prim_at_path(p.clone());
@@ -331,7 +338,7 @@ pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>){
         }
     }
 
-    // instanced meshes
+    // --- instanced meshes ---
     let mut instanced_meshes = Vec::new();
 
     for p in &instancers {
@@ -339,65 +346,123 @@ pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>){
         let xf = accumulate_transforms(&stage, &prim);
         println!("accumulated_transforms= \n{p} => {:?}", xf);
 
-        
         let instancer = usd_geom::PointInstancer::define(&stage, p.clone());
-        
 
-        ////we need to fix it so it works with the correct prototype for the correct indeces so we
-        ////need to propperly enumurate and then propperly combine.
-        
-        // i think its best probably to create a new array that combines positions and
-        // proto_indeces and then read all the positions that mach the iteration proto indeces
-        // not sure if these will always match.
+        // protoIndices
+        let proto_indices: vt::Array<i32> = instancer.proto_indices_attr().get();
+        let indices: Vec<usize> = proto_indices.iter().map(|&i| i as usize).collect();
 
-
-
-        // This wil brak for more advanced prototypes. for now.
-        let proto_indices = instancer.proto_indices_attr().get::<vt::Array<i32>>();
-        println!("  proto_indices: {:?}", proto_indices);
-        
+        // positions
         let positions_array: vt::Array<gf::Vec3f> = instancer.positions_attr().get();
-
-        //NOTE 
-        //transforms are split into positions orients and scales here. so get them seperately
-        //TODO
-        //scales
-        //transforms
-
-
         let positions: Vec<[f32; 3]> = positions_array
             .iter()
             .map(|p| [p.x, p.y, p.z])
             .collect();
-        println!("  positions: {:?}", positions);
 
+        // scales
+        let scales_array: vt::Array<gf::Vec3f> = instancer.scales_attr().get();
+        let scales: Vec<[f32; 3]> = scales_array
+            .iter()
+            .map(|p| [p.x, p.y, p.z])
+            .collect();
 
-        //
+        // rotations (full block)
+        let rotations: Vec<[f32; 4]> = {
+            let attr = instancer.orientations_attr();
+            match attr.get_value() {
+                Some(val) => {
+                    eprintln!(" orientations_attr raw = {:?}", val);
 
+                    if let Some(rot_array) = val.get::<vt::Array<gf::Quath>>() {
+                        eprintln!("orientations_attr using Quath array");
+                        rot_array.iter().map(|p| [
+                            f32::from(p.w),
+                            f32::from(p.i),
+                            f32::from(p.j),
+                            f32::from(p.k),
+                        ]).collect()
+                    } else if let Some(rot_array) = val.get::<vt::Array<gf::Quatf>>() {
+                        eprintln!("orientations_attr using Quatf array");
+                        rot_array.iter().map(|p| [p.w, p.i, p.j, p.k]).collect()
+                    } else if let Some(rot_array) = val.get::<vt::Array<gf::Quatd>>() {
+                        eprintln!("orientations_attr using Quatd array");
+                        rot_array.iter().map(|p| [
+                            p.w as f32,
+                            p.i as f32,
+                            p.j as f32,
+                            p.k as f32,
+                        ]).collect()
+                    } else if let Some(rot) = val.get::<gf::Quath>() {
+                        eprintln!("orientations_attr using single Quath");
+                        vec![[
+                            f32::from(rot.w),
+                            f32::from(rot.i),
+                            f32::from(rot.j),
+                            f32::from(rot.k),
+                        ]]
+                    } else if let Some(rot) = val.get::<gf::Quatf>() {
+                        eprintln!("orientations_attr using single Quatf");
+                        vec![[rot.w, rot.i, rot.j, rot.k]]
+                    } else if let Some(rot) = val.get::<gf::Quatd>() {
+                        eprintln!("orientations_attr using single Quatd");
+                        vec![[rot.w as f32, rot.i as f32, rot.j as f32, rot.k as f32]]
+                    } else {
+                        eprintln!("⚠️ orientations_attr has unsupported type, falling back to identity quat");
+                        vec![[0.0, 0.0, 0.0, 1.0]]
+                    }
+                }
+                None => {
+                    eprintln!("⚠️ orientations_attr not authored, using identity quat");
+                    vec![[0.0, 0.0, 0.0, 1.0]]
+                }
+            }
+        };
+
+        // prototypes
         let targets = instancer.prototypes_rel().targets();
         println!("  path(s):");
-        for (j, path) in targets.iter().enumerate() {
-            println!("    [{}] {}", j, p);
-            
-            
+
+        // --- filter per prototype ---
+        for (proto_idx, path) in targets.iter().enumerate() {
+            println!("    [{}] {}", proto_idx, path);
+
             let protoprim = stage.prim_at_path(path.clone());
 
-            // take the first child of the prototype prim
             if let Some(child) = protoprim.children().next() {
                 if child.type_name().as_str() == "Mesh" {
-                    instanced_meshes.push(InstancedMesh {
-                        mesh: get_mesh_data(&child),
-                        positions: positions.clone(), // later can switch to Arc
-                    });
+                    let mut proto_positions = Vec::new();
+                    let mut proto_scales = Vec::new();
+                    let mut proto_rotations = Vec::new();
+
+                    // collect only the points that reference this prototype
+                    for (point_idx, &pi) in indices.iter().enumerate() {
+                        if pi == proto_idx {
+                            proto_positions.push(positions[point_idx]);
+                            proto_scales.push(
+                                scales.get(point_idx).copied().unwrap_or([1.0, 1.0, 1.0])
+                            );
+                            proto_rotations.push(
+                                rotations.get(point_idx).copied().unwrap_or([0.0, 0.0, 0.0, 1.0])
+                            );
+                        }
+                    }
+
+                    if !proto_positions.is_empty() {
+                        instanced_meshes.push(InstancedMesh {
+                            mesh: get_mesh_data(&child),
+                            positions: proto_positions,
+                            scales: proto_scales,
+                            rotations: proto_rotations,
+                        });
+                    }
                 } else {
                     eprintln!("⚠️ Prototype child is not a Mesh: {}", child.path());
                 }
             } else {
                 eprintln!("⚠️ Prototype prim has no children: {}", path);
             }
-
         }
-    }    // You can decide whether to handle instancers here or not.
-    // For now, we only return MeshData from leaf prims.
-    (meshes_out,instanced_meshes)
+    }
+
+    (meshes_out, instanced_meshes)
 }

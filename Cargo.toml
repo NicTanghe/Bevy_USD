@@ -17,6 +17,7 @@ opt-level = 3
 bevy = { version ="0.16.1", features = ["dynamic_linking"]}
 bevy_panorbit_camera = "0.27.1"
 downcast-rs = "2.0.1"
+glam = "0.30.5"
 log = { version = "*", features = ["max_level_debug", "release_max_level_warn"] }
 openusd-rs = { path = "C:/Users/Nicol/dev/rust/usd/openusd-rs" }
 

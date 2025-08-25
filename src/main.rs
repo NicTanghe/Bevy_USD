@@ -35,7 +35,10 @@ fn setup(
     ));
 
     // import USD custom type
-    let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
+    //let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
+    // import USD custom type
+    let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/monkeysUSD/Helmet_bus.usdc");
+
 
     //convert to bevy type
     let bevys_meshes: Vec<Mesh> = custom_meshes
@@ -47,14 +50,30 @@ fn setup(
     // spawn instanced meshes
     for (index, inst) in instanced_meshes.iter().enumerate() {
         let mesh_handle = meshes.add(meshdata_to_bevy(&inst.mesh));
-        let material_handle = materials.add(Color::srgb(0.7, 0.7, 0.7)); // or derive from USD
+        let material_handle = materials.add(Color::srgb(0.7, 0.7, 0.7));
 
-        for (index, pos) in inst.positions.iter().enumerate() {
+        for (inst_index, pos) in inst.positions.iter().enumerate() {
+            let translation = Vec3::from(*pos);
+
+            let scale = inst.scales
+                .get(inst_index)
+                .map(|s| Vec3::new(s[0] as f32, s[1] as f32, s[2] as f32))
+                .unwrap_or(Vec3::ONE);
+
+            let rotation = inst.rotations
+                .get(inst_index)
+                .map(|o| Quat::from_xyzw(o[1], o[2], o[3], o[0]))
+                .unwrap_or(Quat::IDENTITY);
+
             commands.spawn((
                 Mesh3d(mesh_handle.clone()),
                 MeshMaterial3d(material_handle.clone()),
-                MeshTag(1),
-                Transform::from_translation(Vec3::from(*pos)),
+                MeshTag(index as u32), // outer loop index = instancer id
+                Transform {
+                    translation,
+                    rotation,
+                    scale,
+                },
             ));
         }
     }
