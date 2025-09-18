@@ -7,10 +7,7 @@ use usdish::{meshdata_to_bevy, spawn_custom_mesh};
 mod openRsLoader;
 use openRsLoader::fetch_stage_usd;
 
-use bevy::{
-    prelude::*,
-    render::mesh::MeshTag
-};
+use bevy::{prelude::*, render::mesh::MeshTag};
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
 fn main() {
@@ -37,15 +34,14 @@ fn setup(
     // import USD custom type
     //let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
     // import USD custom type
-    let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/monkeysUSD/Helmet_bus.usdc");
-
+    let (custom_meshes, instanced_meshes) =
+        fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/monkeysUSD/Helmet_bus.usdc");
 
     //convert to bevy type
     let bevys_meshes: Vec<Mesh> = custom_meshes
         .into_iter()
         .map(|m| meshdata_to_bevy(&m))
         .collect();
-
 
     // spawn instanced meshes
     for (index, inst) in instanced_meshes.iter().enumerate() {
@@ -55,12 +51,15 @@ fn setup(
         for (inst_index, pos) in inst.positions.iter().enumerate() {
             let translation = Vec3::from(*pos);
 
-            let scale = inst.scales
+            let scale = inst
+                .scales
                 .get(inst_index)
                 .map(|s| Vec3::new(s[0] as f32, s[1] as f32, s[2] as f32))
                 .unwrap_or(Vec3::ONE);
 
-            let rotation = inst.rotations
+            //if i just load identity it is the same,wtf ?
+            let rotation = inst
+                .rotations
                 .get(inst_index)
                 .map(|o| Quat::from_xyzw(o[1], o[2], o[3], o[0]))
                 .unwrap_or(Quat::IDENTITY);
@@ -77,9 +76,6 @@ fn setup(
             ));
         }
     }
-
-
-
 
     // Spawn each one
     for custom_mesh in bevys_meshes {
