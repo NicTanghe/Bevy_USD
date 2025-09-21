@@ -81,7 +81,6 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
         _ => vec![Vec3::Y; wedge_positions.len()],
     };
 
-
     let wedge_uvs: Vec<Vec2> = if let Some(uvs) = &mesh.uvs {
         if uvs.len() == fv_idx.len() {
             // already per-wedge
@@ -97,9 +96,6 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
         // no UVs at all → fallback
         vec![Vec2::ZERO; wedge_positions.len()]
     };
-
-
-
 
     // sequential wedge ids for triangulation fan
     let wedge_ids: Vec<u32> = (0..wedge_positions.len() as u32).collect();

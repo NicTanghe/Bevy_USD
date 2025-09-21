@@ -61,7 +61,7 @@ fn setup(
             let rotation = inst
                 .rotations
                 .get(inst_index)
-                .map(|o| Quat::from_xyzw(o[1], o[2], o[3], o[0]))
+                .map(|o| Quat::from_xyzw(o[0], o[1], o[2], o[3]))
                 .unwrap_or(Quat::IDENTITY);
 
             commands.spawn((

@@ -30,8 +30,15 @@ impl MeshData {
         self.positions = self
             .positions
             .iter()
-            .map(|&p| transform_point_auto(&m, p))
+            .map(|&p| transform_point(&m, p))
             .collect();
+
+        if let Some(normals) = &mut self.normals {
+            *normals = normals
+                .iter()
+                .map(|&n| transform_direction(&m, n))
+                .collect();
+        }
     }
 }
 
@@ -64,35 +71,44 @@ fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
 
 // -------- Transform points --------
 #[inline]
-fn transform_point_auto(m: &[[f64; 4]; 4], p: [f32; 3]) -> [f32; 3] {
-    let (x, y, z) = (p[0] as f64, p[1] as f64, p[2] as f64);
+fn transform_point(m: &[[f64; 4]; 4], p: [f32; 3]) -> [f32; 3] {
+    let x = p[0] as f64;
+    let y = p[1] as f64;
+    let z = p[2] as f64;
 
-    let row_t_mag = m[3][0].abs() + m[3][1].abs() + m[3][2].abs();
-    let col_t_mag = m[0][3].abs() + m[1][3].abs() + m[2][3].abs();
-    let use_row_vector = row_t_mag >= col_t_mag;
+    let tx = m[0][0] * x + m[0][1] * y + m[0][2] * z + m[0][3];
+    let ty = m[1][0] * x + m[1][1] * y + m[1][2] * z + m[1][3];
+    let tz = m[2][0] * x + m[2][1] * y + m[2][2] * z + m[2][3];
+    let tw = m[3][0] * x + m[3][1] * y + m[3][2] * z + m[3][3];
 
-    if use_row_vector {
-        let tx = x * m[0][0] + y * m[1][0] + z * m[2][0] + m[3][0];
-        let ty = x * m[0][1] + y * m[1][1] + z * m[2][1] + m[3][1];
-        let tz = x * m[0][2] + y * m[1][2] + z * m[2][2] + m[3][2];
-        let tw = x * m[0][3] + y * m[1][3] + z * m[2][3] + m[3][3];
-        let inv_w = if tw != 0.0 { 1.0 / tw } else { 1.0 };
-        [
-            (tx * inv_w) as f32,
-            (ty * inv_w) as f32,
-            (tz * inv_w) as f32,
-        ]
+    let inv_w = if tw.abs() > f64::EPSILON {
+        1.0 / tw
     } else {
-        let tx = m[0][0] * x + m[0][1] * y + m[0][2] * z + m[0][3];
-        let ty = m[1][0] * x + m[1][1] * y + m[1][2] * z + m[1][3];
-        let tz = m[2][0] * x + m[2][1] * y + m[2][2] * z + m[2][3];
-        let tw = m[3][0] * x + m[3][1] * y + m[3][2] * z + m[3][3];
-        let inv_w = if tw != 0.0 { 1.0 / tw } else { 1.0 };
-        [
-            (tx * inv_w) as f32,
-            (ty * inv_w) as f32,
-            (tz * inv_w) as f32,
-        ]
+        1.0
+    };
+
+    [
+        (tx * inv_w) as f32,
+        (ty * inv_w) as f32,
+        (tz * inv_w) as f32,
+    ]
+}
+
+#[inline]
+fn transform_direction(m: &[[f64; 4]; 4], v: [f32; 3]) -> [f32; 3] {
+    let x = v[0] as f64;
+    let y = v[1] as f64;
+    let z = v[2] as f64;
+
+    let tx = m[0][0] * x + m[0][1] * y + m[0][2] * z;
+    let ty = m[1][0] * x + m[1][1] * y + m[1][2] * z;
+    let tz = m[2][0] * x + m[2][1] * y + m[2][2] * z;
+
+    let len = (tx * tx + ty * ty + tz * tz).sqrt();
+    if len.abs() > f64::EPSILON {
+        [(tx / len) as f32, (ty / len) as f32, (tz / len) as f32]
+    } else {
+        [x as f32, y as f32, z as f32]
     }
 }
 
@@ -190,15 +206,17 @@ fn make_trs_matrix(pos: [f32; 3], rot: [f32; 4], scale: [f32; 3]) -> Matrix4d {
 
     let mut m = Matrix4d::from_array(rot_m);
 
-    // scale
-    m[0][0] *= scale[0] as f64;
-    m[1][1] *= scale[1] as f64;
-    m[2][2] *= scale[2] as f64;
+    // scale individual columns so we apply scale before rotation
+    for row in 0..4 {
+        m[row][0] *= scale[0] as f64;
+        m[row][1] *= scale[1] as f64;
+        m[row][2] *= scale[2] as f64;
+    }
 
-    // translate
-    m[3][0] = pos[0] as f64;
-    m[3][1] = pos[1] as f64;
-    m[3][2] = pos[2] as f64;
+    // translate (column-major convention)
+    m[0][3] = pos[0] as f64;
+    m[1][3] = pos[1] as f64;
+    m[2][3] = pos[2] as f64;
 
     m
 }
