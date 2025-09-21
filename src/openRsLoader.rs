@@ -1,7 +1,5 @@
-use downcast_rs::Downcast;
 use openusd_rs::{
     gf::{self, Matrix4d},
-    sdf,
     tf::Token,
     usd, usd_geom, vt,
 };
@@ -44,20 +42,8 @@ impl MeshData {
 
 // -------- Local transform --------
 fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
-    let order_tok = Token::new("xformOpOrder");
-    if prim.has_attribute(&order_tok) {
-        let attr = prim.attribute(&order_tok);
-        let order: vt::Array<Token> = attr.get::<vt::Array<Token>>();
-
-        let mut local = Matrix4d::identity();
-        for op_name in order.iter() {
-            if prim.has_attribute(op_name) {
-                let op_attr = prim.attribute(op_name);
-                let m = op_attr.get::<Matrix4d>();
-                local *= m;
-            }
-        }
-        return Some(local);
+    if let Some(matrix) = usd_geom::XformOp::get_local_transform_matrix(prim) {
+        return Some(matrix);
     }
 
     let single_tok = Token::new("xformOp:transform");
@@ -229,7 +215,9 @@ fn expand_prim(
     meshes_out: &mut Vec<MeshData>,
     instanced_out: &mut Vec<InstancedMesh>,
 ) {
-    let local = get_local_transform(prim).unwrap_or(Matrix4d::identity());
+    let local = get_local_transform(prim)
+        .map(|m| m.transpose())
+        .unwrap_or_else(Matrix4d::identity);
     let world_xf = parent_xf.post_mult(&local);
 
     match prim.type_name().as_str() {
@@ -320,4 +308,31 @@ pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>) {
     );
 
     (meshes, instanced)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn apply_transform_translation() {
+        let mut mesh = MeshData {
+            positions: vec![[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
+            face_vertex_counts: Vec::new(),
+            face_vertex_indices: Vec::new(),
+            normals: None,
+            uvs: None,
+        };
+
+        let translate = Matrix4d::from_array([
+            [1.0, 0.0, 0.0, 2.0],
+            [0.0, 1.0, 0.0, 3.0],
+            [0.0, 0.0, 1.0, -4.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ]);
+
+        mesh.apply_transform(&translate);
+        assert_eq!(mesh.positions[0], [2.0, 3.0, -4.0]);
+        assert_eq!(mesh.positions[1], [3.0, 3.0, -4.0]);
+    }
 }

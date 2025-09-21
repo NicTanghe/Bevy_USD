@@ -35,7 +35,7 @@ fn setup(
     //let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
     // import USD custom type
     let (custom_meshes, instanced_meshes) =
-        fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/monkeysUSD/Helmet_bus.usdc");
+        fetch_stage_usd("C:/Users/Nicol/CGI/year5/slay/usd/Helmet_bus_2.usdc");
 
     //convert to bevy type
     let bevys_meshes: Vec<Mesh> = custom_meshes

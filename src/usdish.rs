@@ -8,7 +8,7 @@ use bevy::{
     },
 };
 
-use crate::openRsLoader::{MeshData, fetch_stage_usd};
+use crate::openRsLoader::{fetch_stage_usd, MeshData};
 
 fn triangulate(
     counts: &[usize],
@@ -122,17 +122,6 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
 pub fn meshdata_vec_to_bevy(meshes: Vec<MeshData>) -> Vec<Mesh> {
     meshes.into_iter().map(|m| meshdata_to_bevy(&m)).collect()
 }
-
-//pub fn load_usd_as_resource(mut commands: Commands, stage: &str) {
-//    let custom_meshes = fetch_stage_usd(stage);
-//
-//    let bevys_meshes: Vec<Mesh> = custom_meshes
-//        .into_iter()
-//        .map(|m| meshdata_to_bevy(&m))
-//        .collect();
-//
-//    commands.insert_resource(bevys_meshes);
-//}
 
 pub fn spawn_custom_mesh(
     commands: &mut Commands,
