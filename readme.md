@@ -7,14 +7,13 @@ loading flattened stages with the following stuf.
 
 plain meshes.
 
-non nested instancers.
+nested instances.
 
 
 ### Not working
 
 lights
 skel
-nested instancers
 usda,usdz
 
 non flattend
