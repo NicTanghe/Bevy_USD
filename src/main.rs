@@ -2,13 +2,15 @@
 //! A simple 3D scene with light shining over a cube sitting on a plane.
 
 mod usdish;
-use usdish::{meshdata_to_bevy, spawn_custom_mesh};
+use usdish::meshdata_to_bevy;
 
-mod openRsLoader;
-use openRsLoader::fetch_stage_usd;
+mod open_rs_loader;
+use open_rs_loader::{MeshInstance, fetch_stage_usd};
 
 use bevy::{prelude::*, render::mesh::MeshTag};
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
+
+const USD_STAGE_PATH: &str = "C:/Users/Nicol/CGI/year5/slay/usd/Helmet_bus_3.usdc";
 
 fn main() {
     App::new()
@@ -31,55 +33,27 @@ fn setup(
         Transform::from_rotation(Quat::from_rotation_x(-std::f32::consts::FRAC_PI_2)),
     ));
 
-    // import USD custom type
-    //let (custom_meshes, instanced_meshes) = fetch_stage_usd("C:/Users/Nicol/dev/rust/usd/cutofqube.usdc");
-    // import USD custom type
-    let (custom_meshes, instanced_meshes) =
-        fetch_stage_usd("C:/Users/Nicol/CGI/year5/slay/usd/Helmet_bus_2.usdc");
+    // import USD data without baking transforms into vertex data
+    let scene = fetch_stage_usd(USD_STAGE_PATH);
 
-    //convert to bevy type
-    let bevys_meshes: Vec<Mesh> = custom_meshes
-        .into_iter()
-        .map(|m| meshdata_to_bevy(&m))
+    // cache Mesh handles so instances can reuse geometry
+    let mesh_handles: Vec<Handle<Mesh>> = scene
+        .meshes
+        .iter()
+        .map(|mesh| meshes.add(meshdata_to_bevy(mesh)))
         .collect();
 
-    // spawn instanced meshes
-    for (index, inst) in instanced_meshes.iter().enumerate() {
-        let mesh_handle = meshes.add(meshdata_to_bevy(&inst.mesh));
-        let material_handle = materials.add(Color::srgb(0.7, 0.7, 0.7));
+    let material_handle = materials.add(Color::srgb(0.7, 0.7, 0.7));
 
-        for (inst_index, pos) in inst.positions.iter().enumerate() {
-            let translation = Vec3::from(*pos);
-
-            let scale = inst
-                .scales
-                .get(inst_index)
-                .map(|s| Vec3::new(s[0] as f32, s[1] as f32, s[2] as f32))
-                .unwrap_or(Vec3::ONE);
-
-            //if i just load identity it is the same,wtf ?
-            let rotation = inst
-                .rotations
-                .get(inst_index)
-                .map(|o| Quat::from_xyzw(o[0], o[1], o[2], o[3]))
-                .unwrap_or(Quat::IDENTITY);
-
+    for instance in &scene.instances {
+        if let Some(mesh_handle) = mesh_handles.get(instance.mesh_index) {
             commands.spawn((
                 Mesh3d(mesh_handle.clone()),
                 MeshMaterial3d(material_handle.clone()),
-                MeshTag(index as u32), // outer loop index = instancer id
-                Transform {
-                    translation,
-                    rotation,
-                    scale,
-                },
+                MeshTag(instance.mesh_index as u32),
+                instance_to_transform(instance),
             ));
         }
-    }
-
-    // Spawn each one
-    for custom_mesh in bevys_meshes {
-        spawn_custom_mesh(&mut commands, &mut meshes, &mut materials, custom_mesh);
     }
 
     // light
@@ -88,7 +62,7 @@ fn setup(
             shadows_enabled: true,
             ..default()
         },
-        Transform::from_xyz(4.0, 8.0, 4.0),
+        Transform::from_xyz(-4.0, 8.0, -4.0),
     ));
 
     // camera
@@ -96,4 +70,27 @@ fn setup(
         Transform::from_xyz(-2.5, 4.5, 9.0).looking_at(Vec3::ZERO, Vec3::Y),
         PanOrbitCamera::default(),
     ));
+}
+
+fn instance_to_transform(instance: &MeshInstance) -> Transform {
+    let mat = Mat4::from_cols_array(&[
+        instance.transform[0][0],
+        instance.transform[1][0],
+        instance.transform[2][0],
+        instance.transform[3][0],
+        instance.transform[0][1],
+        instance.transform[1][1],
+        instance.transform[2][1],
+        instance.transform[3][1],
+        instance.transform[0][2],
+        instance.transform[1][2],
+        instance.transform[2][2],
+        instance.transform[3][2],
+        instance.transform[0][3],
+        instance.transform[1][3],
+        instance.transform[2][3],
+        instance.transform[3][3],
+    ]);
+
+    Transform::from_matrix(mat)
 }

@@ -1,3 +1,6 @@
+use std::collections::HashMap;
+
+use glam::{Mat4, Quat, Vec3};
 use openusd_rs::{
     gf::{self, Matrix4d},
     tf::Token,
@@ -5,14 +8,6 @@ use openusd_rs::{
 };
 
 // -------- Data structs --------
-#[derive(Debug, Clone)]
-pub struct InstancedMesh {
-    pub mesh: MeshData,
-    pub positions: Vec<[f32; 3]>,
-    pub rotations: Vec<[f32; 4]>, // stored as [x,y,z,w]
-    pub scales: Vec<[f32; 3]>,
-}
-
 #[derive(Debug, Clone)]
 pub struct MeshData {
     pub positions: Vec<[f32; 3]>,
@@ -22,22 +17,16 @@ pub struct MeshData {
     pub uvs: Option<Vec<[f32; 2]>>,
 }
 
-impl MeshData {
-    pub fn apply_transform(&mut self, xf: &openusd_rs::gf::Matrix4d) {
-        let m: [[f64; 4]; 4] = *xf.as_array();
-        self.positions = self
-            .positions
-            .iter()
-            .map(|&p| transform_point(&m, p))
-            .collect();
+#[derive(Debug, Clone)]
+pub struct MeshInstance {
+    pub mesh_index: usize,
+    pub transform: [[f32; 4]; 4],
+}
 
-        if let Some(normals) = &mut self.normals {
-            *normals = normals
-                .iter()
-                .map(|&n| transform_direction(&m, n))
-                .collect();
-        }
-    }
+#[derive(Debug, Default, Clone)]
+pub struct SceneData {
+    pub meshes: Vec<MeshData>,
+    pub instances: Vec<MeshInstance>,
 }
 
 // -------- Local transform --------
@@ -53,49 +42,6 @@ fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
     }
 
     None
-}
-
-// -------- Transform points --------
-#[inline]
-fn transform_point(m: &[[f64; 4]; 4], p: [f32; 3]) -> [f32; 3] {
-    let x = p[0] as f64;
-    let y = p[1] as f64;
-    let z = p[2] as f64;
-
-    let tx = m[0][0] * x + m[0][1] * y + m[0][2] * z + m[0][3];
-    let ty = m[1][0] * x + m[1][1] * y + m[1][2] * z + m[1][3];
-    let tz = m[2][0] * x + m[2][1] * y + m[2][2] * z + m[2][3];
-    let tw = m[3][0] * x + m[3][1] * y + m[3][2] * z + m[3][3];
-
-    let inv_w = if tw.abs() > f64::EPSILON {
-        1.0 / tw
-    } else {
-        1.0
-    };
-
-    [
-        (tx * inv_w) as f32,
-        (ty * inv_w) as f32,
-        (tz * inv_w) as f32,
-    ]
-}
-
-#[inline]
-fn transform_direction(m: &[[f64; 4]; 4], v: [f32; 3]) -> [f32; 3] {
-    let x = v[0] as f64;
-    let y = v[1] as f64;
-    let z = v[2] as f64;
-
-    let tx = m[0][0] * x + m[0][1] * y + m[0][2] * z;
-    let ty = m[1][0] * x + m[1][1] * y + m[1][2] * z;
-    let tz = m[2][0] * x + m[2][1] * y + m[2][2] * z;
-
-    let len = (tx * tx + ty * ty + tz * tz).sqrt();
-    if len.abs() > f64::EPSILON {
-        [(tx / len) as f32, (ty / len) as f32, (tz / len) as f32]
-    } else {
-        [x as f32, y as f32, z as f32]
-    }
 }
 
 // -------- Mesh data --------
@@ -164,47 +110,92 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     }
 }
 
-fn make_trs_matrix(pos: [f32; 3], rot: [f32; 4], scale: [f32; 3]) -> Matrix4d {
-    let [x, y, z, w] = rot; // <-- keep consistent with extraction
-    let (x, y, z, w) = (x as f64, y as f64, z as f64, w as f64);
+#[cfg_attr(not(test), allow(dead_code))]
+fn matrix4d_to_mat4(matrix: &Matrix4d) -> Mat4 {
+    let src = matrix.as_array();
+    let mut cols = [0.0f32; 16];
+    for col in 0..4 {
+        for row in 0..4 {
+            cols[col * 4 + row] = src[row][col] as f32;
+        }
+    }
+    Mat4::from_cols_array(&cols)
+}
 
-    let rot_m: [[f64; 4]; 4] = [
-        [
-            1.0 - 2.0 * y * y - 2.0 * z * z,
-            2.0 * x * y - 2.0 * z * w,
-            2.0 * x * z + 2.0 * y * w,
-            0.0,
-        ],
-        [
-            2.0 * x * y + 2.0 * z * w,
-            1.0 - 2.0 * x * x - 2.0 * z * z,
-            2.0 * y * z - 2.0 * x * w,
-            0.0,
-        ],
-        [
-            2.0 * x * z - 2.0 * y * w,
-            2.0 * y * z + 2.0 * x * w,
-            1.0 - 2.0 * x * x - 2.0 * y * y,
-            0.0,
-        ],
-        [0.0, 0.0, 0.0, 1.0],
-    ];
+fn mat4_to_matrix4d(mat: Mat4) -> Matrix4d {
+    let cols = mat.to_cols_array();
+    let mut data = [[0.0f64; 4]; 4];
+    for col in 0..4 {
+        for row in 0..4 {
+            data[row][col] = cols[col * 4 + row] as f64;
+        }
+    }
+    Matrix4d::from_array(data)
+}
 
-    let mut m = Matrix4d::from_array(rot_m);
-
-    // scale individual columns so we apply scale before rotation
+fn matrix4d_to_f32_array(matrix: &Matrix4d) -> [[f32; 4]; 4] {
+    let src = matrix.as_array();
+    let mut out = [[0.0f32; 4]; 4];
     for row in 0..4 {
-        m[row][0] *= scale[0] as f64;
-        m[row][1] *= scale[1] as f64;
-        m[row][2] *= scale[2] as f64;
+        for col in 0..4 {
+            out[row][col] = src[row][col] as f32;
+        }
+    }
+    out
+}
+
+fn make_trs_matrix(pos: [f32; 3], rot: [f32; 4], scale: [f32; 3]) -> Matrix4d {
+    let translation = Vec3::from_array(pos);
+    let mut rotation = Quat::from_xyzw(rot[0], rot[1], rot[2], rot[3]);
+    if rotation.length_squared() <= f32::EPSILON {
+        rotation = Quat::IDENTITY;
+    } else {
+        rotation = rotation.normalize();
+    }
+    let scale = Vec3::from_array(scale);
+
+    let mat = Mat4::from_scale_rotation_translation(scale, rotation, translation);
+    mat4_to_matrix4d(mat)
+}
+
+// -------- Scene builder --------
+struct SceneBuilder {
+    data: SceneData,
+    mesh_lookup: HashMap<String, usize>,
+}
+
+impl SceneBuilder {
+    fn new() -> Self {
+        Self {
+            data: SceneData::default(),
+            mesh_lookup: HashMap::new(),
+        }
     }
 
-    // translate (column-major convention)
-    m[0][3] = pos[0] as f64;
-    m[1][3] = pos[1] as f64;
-    m[2][3] = pos[2] as f64;
+    fn get_or_insert_mesh(&mut self, prim: &usd::Prim) -> usize {
+        let key = prim.path().to_string();
+        if let Some(&idx) = self.mesh_lookup.get(&key) {
+            return idx;
+        }
 
-    m
+        let mesh_data = get_mesh_data(prim);
+        let index = self.data.meshes.len();
+        self.data.meshes.push(mesh_data);
+        self.mesh_lookup.insert(key, index);
+        index
+    }
+
+    fn push_instance(&mut self, mesh_index: usize, xf: &Matrix4d) {
+        let transform = matrix4d_to_f32_array(xf);
+        self.data.instances.push(MeshInstance {
+            mesh_index,
+            transform,
+        });
+    }
+
+    fn into_scene(self) -> SceneData {
+        self.data
+    }
 }
 
 // -------- Recursively expand prims --------
@@ -212,8 +203,7 @@ fn expand_prim(
     stage: &usd::Stage,
     prim: &usd::Prim,
     parent_xf: &Matrix4d,
-    meshes_out: &mut Vec<MeshData>,
-    instanced_out: &mut Vec<InstancedMesh>,
+    scene: &mut SceneBuilder,
 ) {
     let local = get_local_transform(prim)
         .map(|m| m.transpose())
@@ -222,9 +212,8 @@ fn expand_prim(
 
     match prim.type_name().as_str() {
         "Mesh" => {
-            let mut mesh = get_mesh_data(prim);
-            mesh.apply_transform(&world_xf);
-            meshes_out.push(mesh);
+            let mesh_index = scene.get_or_insert_mesh(prim);
+            scene.push_instance(mesh_index, &world_xf);
         }
         "PointInstancer" => {
             let inst = usd_geom::PointInstancer::define(&stage, prim.path().clone());
@@ -250,7 +239,6 @@ fn expand_prim(
                 .map(|p| [p.x, p.y, p.z])
                 .collect();
 
-            // ✅ store quats as [x,y,z,w]
             let rotations: Vec<[f32; 4]> = match inst.orientations_attr().get_value() {
                 Some(val) => {
                     if let Some(arr) = val.get::<vt::Array<gf::Quatf>>() {
@@ -280,59 +268,83 @@ fn expand_prim(
                         let rot = *rotations.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0, 1.0]);
                         let xf = make_trs_matrix(pos, rot, scale);
                         let new_xf = world_xf.post_mult(&xf);
-                        expand_prim(stage, &proto, &new_xf, meshes_out, instanced_out);
+                        expand_prim(stage, &proto, &new_xf, scene);
                     }
                 }
             }
         }
         _ => {
             for child in prim.children() {
-                expand_prim(stage, &child, &world_xf, meshes_out, instanced_out);
+                expand_prim(stage, &child, &world_xf, scene);
             }
         }
     }
 }
 
 // -------- Entry point --------
-pub fn fetch_stage_usd(stagep: &str) -> (Vec<MeshData>, Vec<InstancedMesh>) {
+pub fn fetch_stage_usd(stagep: &str) -> SceneData {
     let stage = usd::Stage::open(stagep);
-    let mut meshes = Vec::new();
-    let mut instanced = Vec::new();
+    let mut builder = SceneBuilder::new();
 
     expand_prim(
         &stage,
         &stage.pseudo_root(),
         &Matrix4d::identity(),
-        &mut meshes,
-        &mut instanced,
+        &mut builder,
     );
 
-    (meshes, instanced)
+    builder.into_scene()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    fn approx_eq(a: f32, b: f32) -> bool {
+        (a - b).abs() < 1e-4
+    }
+
     #[test]
-    fn apply_transform_translation() {
-        let mut mesh = MeshData {
-            positions: vec![[0.0, 0.0, 0.0], [1.0, 0.0, 0.0]],
-            face_vertex_counts: Vec::new(),
-            face_vertex_indices: Vec::new(),
-            normals: None,
-            uvs: None,
+    fn make_trs_matches_glam() {
+        let pos = [1.0, -2.5, 3.25];
+        let rot = [0.1, 0.2, 0.3, 0.9];
+        let scale = [2.0, 3.0, 0.5];
+
+        let usd_matrix = make_trs_matrix(pos, rot, scale);
+        let glam_rot = {
+            let mut q = Quat::from_xyzw(rot[0], rot[1], rot[2], rot[3]);
+            if q.length_squared() <= f32::EPSILON {
+                q = Quat::IDENTITY;
+            } else {
+                q = q.normalize();
+            }
+            q
         };
+        let glam_mat = Mat4::from_scale_rotation_translation(
+            Vec3::from_array(scale),
+            glam_rot,
+            Vec3::from_array(pos),
+        );
 
-        let translate = Matrix4d::from_array([
-            [1.0, 0.0, 0.0, 2.0],
-            [0.0, 1.0, 0.0, 3.0],
-            [0.0, 0.0, 1.0, -4.0],
-            [0.0, 0.0, 0.0, 1.0],
-        ]);
+        let converted = matrix4d_to_mat4(&usd_matrix);
+        let diff = glam_mat - converted;
+        for v in diff.to_cols_array() {
+            assert!(v.abs() < 1e-4, "matrix mismatch: {:?}", diff);
+        }
+    }
 
-        mesh.apply_transform(&translate);
-        assert_eq!(mesh.positions[0], [2.0, 3.0, -4.0]);
-        assert_eq!(mesh.positions[1], [3.0, 3.0, -4.0]);
+    #[test]
+    fn matrix_roundtrip() {
+        let mat = Mat4::from_scale_rotation_translation(
+            Vec3::new(1.5, -2.0, 0.75),
+            Quat::from_rotation_y(std::f32::consts::FRAC_PI_3),
+            Vec3::new(4.0, 5.0, -6.0),
+        );
+        let usd = mat4_to_matrix4d(mat);
+        let back = matrix4d_to_mat4(&usd);
+        let diff = mat - back;
+        for value in diff.to_cols_array() {
+            assert!(approx_eq(value, 0.0));
+        }
     }
 }

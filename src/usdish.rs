@@ -1,14 +1,9 @@
 use bevy::{
-    math::{vec2, vec3},
     prelude::*,
-    render::{
-        mesh::{Indices, VertexAttributeValues},
-        render_asset::RenderAssetUsages,
-        render_resource::PrimitiveTopology,
-    },
+    render::{mesh::Indices, render_asset::RenderAssetUsages, render_resource::PrimitiveTopology},
 };
 
-use crate::openRsLoader::{fetch_stage_usd, MeshData};
+use crate::open_rs_loader::MeshData;
 
 fn triangulate(
     counts: &[usize],
@@ -117,21 +112,4 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL, flat_normals)
     .with_inserted_attribute(Mesh::ATTRIBUTE_UV_0, flat_uvs)
     .with_inserted_indices(Indices::U32(tri_indices))
-}
-/// Convert a Vec<MeshData> into a Vec<Mesh>
-pub fn meshdata_vec_to_bevy(meshes: Vec<MeshData>) -> Vec<Mesh> {
-    meshes.into_iter().map(|m| meshdata_to_bevy(&m)).collect()
-}
-
-pub fn spawn_custom_mesh(
-    commands: &mut Commands,
-    meshes: &mut ResMut<Assets<Mesh>>,
-    materials: &mut ResMut<Assets<StandardMaterial>>,
-    custom_mesh: Mesh,
-) {
-    commands.spawn((
-        Mesh3d(meshes.add(custom_mesh)),
-        MeshMaterial3d(materials.add(Color::srgb_u8(124, 144, 255))),
-        Transform::from_xyz(0.0, 0.5, 0.0),
-    ));
 }
