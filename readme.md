@@ -9,6 +9,8 @@ plain meshes.
 
 nested instances.
 
+doubleSided
+
 
 ### Not working
 
@@ -18,5 +20,4 @@ usda,usdz
 
 non flattend
 
-dual faced.
 reversed polygon sorting.
