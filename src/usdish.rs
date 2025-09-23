@@ -3,7 +3,7 @@ use bevy::{
     render::{mesh::Indices, render_asset::RenderAssetUsages, render_resource::PrimitiveTopology},
 };
 
-use crate::open_rs_loader::MeshData;
+use crate::open_rs_loader::{MeshData, PrimvarInterpolation};
 
 fn triangulate(
     counts: &[usize],
@@ -38,6 +38,163 @@ fn triangulate(
     (new_positions, new_normals, new_uvs, tri_indices)
 }
 
+fn generate_wedge_normals(
+    positions: &[Vec3],
+    face_vertex_counts: &[usize],
+    face_vertex_indices: &[usize],
+) -> Vec<Vec3> {
+    let mut wedge_normals = Vec::with_capacity(face_vertex_indices.len());
+    let mut cursor = 0;
+
+    for &count in face_vertex_counts {
+        if count < 3 {
+            for _ in 0..count {
+                wedge_normals.push(Vec3::Y);
+            }
+            cursor += count;
+            continue;
+        }
+
+        let first_index = face_vertex_indices[cursor];
+        let p0 = positions[first_index];
+        let mut face_normal = Vec3::ZERO;
+
+        for tri_offset in 1..(count - 1) {
+            let i1 = face_vertex_indices[cursor + tri_offset];
+            let i2 = face_vertex_indices[cursor + tri_offset + 1];
+            let edge1 = positions[i1] - p0;
+            let edge2 = positions[i2] - p0;
+            face_normal += edge2.cross(edge1);
+        }
+
+        if face_normal.length_squared() <= f32::EPSILON {
+            face_normal = Vec3::Y;
+        } else {
+            face_normal = face_normal.normalize();
+        }
+
+        for _ in 0..count {
+            wedge_normals.push(face_normal);
+        }
+
+        cursor += count;
+    }
+
+    wedge_normals
+}
+
+fn sample_normals(values: &[Vec3], indices: &[usize]) -> Option<Vec<Vec3>> {
+    let mut out = Vec::with_capacity(indices.len());
+    for &idx in indices {
+        let value = *values.get(idx)?;
+        out.push(value);
+    }
+    Some(out)
+}
+
+fn expand_normals_to_wedges(mesh: &MeshData, positions: &[Vec3], fv_idx: &[usize]) -> Vec<Vec3> {
+    let wedge_count = fv_idx.len();
+    let vertex_count = positions.len();
+    let face_count = mesh.face_vertex_counts.len();
+
+    let values = match &mesh.normals {
+        Some(normals) => normals
+            .iter()
+            .map(|&n| Vec3::from(n))
+            .collect::<Vec<Vec3>>(),
+        None => return generate_wedge_normals(positions, &mesh.face_vertex_counts, fv_idx),
+    };
+
+    let indices_opt = mesh.normal_indices.as_deref();
+    let interpolation = mesh
+        .normal_interpolation
+        .unwrap_or(PrimvarInterpolation::Vertex);
+
+    let result = match interpolation {
+        PrimvarInterpolation::FaceVarying => {
+            if let Some(indices) = indices_opt {
+                if indices.len() == wedge_count {
+                    sample_normals(&values, indices)
+                } else {
+                    None
+                }
+            } else if values.len() == wedge_count {
+                Some(values.clone())
+            } else {
+                None
+            }
+        }
+        PrimvarInterpolation::Vertex | PrimvarInterpolation::Varying => {
+            if let Some(indices) = indices_opt {
+                if indices.len() == vertex_count {
+                    sample_normals(&values, indices).map(|per_vertex| {
+                        fv_idx
+                            .iter()
+                            .map(|&v_idx| *per_vertex.get(v_idx).unwrap_or(&Vec3::Y))
+                            .collect()
+                    })
+                } else if indices.len() == wedge_count {
+                    sample_normals(&values, indices)
+                } else {
+                    None
+                }
+            } else if values.len() == vertex_count {
+                Some(
+                    fv_idx
+                        .iter()
+                        .map(|&v_idx| *values.get(v_idx).unwrap_or(&Vec3::Y))
+                        .collect(),
+                )
+            } else if values.len() == wedge_count {
+                Some(values.clone())
+            } else {
+                None
+            }
+        }
+        PrimvarInterpolation::Uniform => {
+            let per_face = if let Some(indices) = indices_opt {
+                if indices.len() == face_count {
+                    sample_normals(&values, indices)
+                } else {
+                    None
+                }
+            } else if values.len() == face_count {
+                Some(values.clone())
+            } else {
+                None
+            };
+
+            per_face.map(|per_face_vals| {
+                let mut out = Vec::with_capacity(wedge_count);
+                for (face_idx, &count) in mesh.face_vertex_counts.iter().enumerate() {
+                    let normal = *per_face_vals.get(face_idx).unwrap_or(&Vec3::Y);
+                    for _ in 0..count {
+                        out.push(normal);
+                    }
+                }
+                out
+            })
+        }
+        PrimvarInterpolation::Constant => {
+            if let Some(indices) = indices_opt {
+                if !indices.is_empty() {
+                    sample_normals(&values, &indices[..1]).map(|vals| vec![vals[0]; wedge_count])
+                } else {
+                    None
+                }
+            } else if !values.is_empty() {
+                Some(vec![values[0]; wedge_count])
+            } else {
+                None
+            }
+        }
+        PrimvarInterpolation::Unknown => None,
+    };
+
+    result.unwrap_or_else(|| generate_wedge_normals(positions, &mesh.face_vertex_counts, fv_idx))
+}
+
+
 pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     // positions (vertex array)
     let positions_vtx: Vec<Vec3> = mesh.positions.iter().map(|&p| Vec3::from(p)).collect();
@@ -67,14 +224,7 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     // expand to wedge-local attributes (one per face-vertex)
     let wedge_positions: Vec<Vec3> = fv_idx.iter().map(|&i| positions_vtx[i]).collect();
 
-    let wedge_normals: Vec<Vec3> = match &mesh.normals {
-        // already per-wedge
-        Some(n) if n.len() == fv_idx.len() => n.iter().map(|&nn| Vec3::from(nn)).collect(),
-        // per-vertex -> expand by indices
-        Some(n) if n.len() == vtx_len => fv_idx.iter().map(|&i| Vec3::from(n[i])).collect(),
-        // missing / unexpected -> fallback
-        _ => vec![Vec3::Y; wedge_positions.len()],
-    };
+    let wedge_normals = expand_normals_to_wedges(mesh, &positions_vtx, &fv_idx);
 
     let wedge_uvs: Vec<Vec2> = if let Some(uvs) = &mesh.uvs {
         if uvs.len() == fv_idx.len() {

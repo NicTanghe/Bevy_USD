@@ -8,12 +8,37 @@ use openusd_rs::{
 };
 
 // -------- Data structs --------
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum PrimvarInterpolation {
+    Vertex,
+    Varying,
+    FaceVarying,
+    Uniform,
+    Constant,
+    Unknown,
+}
+
+impl PrimvarInterpolation {
+    fn from_token(token: &str) -> Self {
+        match token {
+            "vertex" => PrimvarInterpolation::Vertex,
+            "varying" => PrimvarInterpolation::Varying,
+            "faceVarying" => PrimvarInterpolation::FaceVarying,
+            "uniform" => PrimvarInterpolation::Uniform,
+            "constant" => PrimvarInterpolation::Constant,
+            _ => PrimvarInterpolation::Unknown,
+        }
+    }
+}
+
 #[derive(Debug, Clone)]
 pub struct MeshData {
     pub positions: Vec<[f32; 3]>,
     pub face_vertex_counts: Vec<usize>,
     pub face_vertex_indices: Vec<usize>,
     pub normals: Option<Vec<[f32; 3]>>,
+    pub normal_indices: Option<Vec<usize>>,
+    pub normal_interpolation: Option<PrimvarInterpolation>,
     pub uvs: Option<Vec<[f32; 2]>>,
 }
 
@@ -71,15 +96,69 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
         Vec::new()
     };
 
-    let normals = if mesh.has_normals_attr() {
-        let arr: vt::Array<gf::Vec3f> = mesh.normals_attr().get();
-        if arr.len() > 0 {
+    let normals_token = Token::new("normals");
+    let has_normals_attr = mesh.has_normals_attr();
+
+    let (normals, normal_indices, normal_interpolation) = if has_normals_attr {
+        let attr = mesh.normals_attr();
+        let arr: vt::Array<gf::Vec3f> = attr.get();
+        let normals = if !arr.is_empty() {
             Some(arr.iter().map(|n| [n.x, n.y, n.z]).collect())
         } else {
             None
-        }
+        };
+
+        let interpolation = attr
+            .metadata::<Token>(&Token::new("interpolation"))
+            .map(|token| PrimvarInterpolation::from_token(token.as_str()));
+
+        let indices_token = Token::new("normals:indices");
+        let normal_indices = if mesh.prim().has_attribute(&indices_token) {
+            let idx_attr = mesh.prim().attribute(&indices_token);
+            let idx_arr: vt::Array<i32> = idx_attr.get();
+            if !idx_arr.is_empty() {
+                Some(idx_arr.iter().map(|&i| i as usize).collect())
+            } else {
+                None
+            }
+        } else {
+            None
+        };
+
+        (normals, normal_indices, interpolation)
+    } else if mesh.has_primvar(&normals_token) {
+        let attr = mesh.primvar(&normals_token);
+        let normals = attr
+            .get_value()
+            .and_then(|value| value.get::<vt::Array<gf::Vec3f>>())
+            .and_then(|arr| {
+                if arr.is_empty() {
+                    None
+                } else {
+                    Some(arr.iter().map(|n| [n.x, n.y, n.z]).collect())
+                }
+            });
+
+        let interpolation = attr
+            .metadata::<Token>(&Token::new("interpolation"))
+            .map(|token| PrimvarInterpolation::from_token(token.as_str()));
+
+        let indices_token = Token::new("primvars:normals:indices");
+        let normal_indices = if mesh.prim().has_attribute(&indices_token) {
+            let idx_attr = mesh.prim().attribute(&indices_token);
+            let idx_arr: vt::Array<i32> = idx_attr.get();
+            if !idx_arr.is_empty() {
+                Some(idx_arr.iter().map(|&i| i as usize).collect())
+            } else {
+                None
+            }
+        } else {
+            None
+        };
+
+        (normals, normal_indices, interpolation)
     } else {
-        None
+        (None, None, None)
     };
 
     let uvs = if mesh.has_primvar(&Token::new("st")) {
@@ -106,6 +185,8 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
         face_vertex_counts,
         face_vertex_indices,
         normals,
+        normal_indices,
+        normal_interpolation,
         uvs,
     }
 }
