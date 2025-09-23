@@ -7,15 +7,16 @@ use usdish::meshdata_to_bevy;
 mod open_rs_loader;
 use open_rs_loader::{MeshInstance, fetch_stage_usd};
 
-use bevy::{prelude::*, render::mesh::MeshTag};
+use bevy::{pbr::DirectionalLightShadowMap, prelude::*, render::mesh::MeshTag};
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
-const USD_STAGE_PATH: &str = "C:/Users/Nicol/CGI/year5/slay/usd/Helmet_bus_3.usdc";
+const USD_STAGE_PATH: &str = "C:/Users/Nicol/CGI/year5/slay/usd/check_double.usdc";
 
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
         .add_plugins(PanOrbitCameraPlugin)
+        .insert_resource(DirectionalLightShadowMap { size: 4096 })
         .add_systems(Startup, setup)
         .run();
 }
@@ -43,10 +44,21 @@ fn setup(
         .map(|mesh| meshes.add(meshdata_to_bevy(mesh)))
         .collect();
 
-    let material_handle = materials.add(Color::srgb(0.7, 0.7, 0.7));
+    let material_handles: Vec<Handle<StandardMaterial>> = scene
+        .meshes
+        .iter()
+        .map(|mesh| {
+            let mut material = StandardMaterial::from(Color::srgb(0.7, 0.7, 0.7));
+            material.double_sided = mesh.double_sided;
+            materials.add(material)
+        })
+        .collect();
 
     for instance in &scene.instances {
-        if let Some(mesh_handle) = mesh_handles.get(instance.mesh_index) {
+        if let (Some(mesh_handle), Some(material_handle)) = (
+            mesh_handles.get(instance.mesh_index),
+            material_handles.get(instance.mesh_index),
+        ) {
             commands.spawn((
                 Mesh3d(mesh_handle.clone()),
                 MeshMaterial3d(material_handle.clone()),
@@ -57,13 +69,25 @@ fn setup(
     }
 
     // light
+    // directional sun
     commands.spawn((
-        PointLight {
+        DirectionalLight {
             shadows_enabled: true,
+            illuminance: 10_000.0, // more reasonable sun
             ..default()
         },
-        Transform::from_xyz(-4.0, 8.0, -4.0),
+        Transform::from_rotation(
+            Quat::from_rotation_x(-std::f32::consts::FRAC_PI_4)
+                * Quat::from_rotation_y(std::f32::consts::PI),
+        ),
     ));
+
+    // uniform ambient
+    commands.insert_resource(AmbientLight {
+        color: Color::srgb(0.6405, 0.822, 1.0035),
+        brightness: 200.0,
+        affects_lightmapped_meshes: true,
+    });
 
     // camera
     commands.spawn((

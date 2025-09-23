@@ -194,7 +194,6 @@ fn expand_normals_to_wedges(mesh: &MeshData, positions: &[Vec3], fv_idx: &[usize
     result.unwrap_or_else(|| generate_wedge_normals(positions, &mesh.face_vertex_counts, fv_idx))
 }
 
-
 pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     // positions (vertex array)
     let positions_vtx: Vec<Vec3> = mesh.positions.iter().map(|&p| Vec3::from(p)).collect();

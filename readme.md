@@ -18,5 +18,5 @@ usda,usdz
 
 non flattend
 
-
-
+dual faced.
+reversed polygon sorting.

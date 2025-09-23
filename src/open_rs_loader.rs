@@ -40,6 +40,7 @@ pub struct MeshData {
     pub normal_indices: Option<Vec<usize>>,
     pub normal_interpolation: Option<PrimvarInterpolation>,
     pub uvs: Option<Vec<[f32; 2]>>,
+    pub double_sided: bool,
 }
 
 #[derive(Debug, Clone)]
@@ -74,6 +75,27 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     let path = prim.path().clone();
     let stage = prim.stage();
     let mesh = usd_geom::Mesh::define(&stage, path);
+
+    let double_sided = {
+        let prim = mesh.prim();
+        let double_sided_tok = Token::new("doubleSided");
+
+        if prim.has_property("doubleSided") {
+            let prop = prim.property(&double_sided_tok);
+            if let Some(val) = prop.get_value() {
+                if let Some(b) = val.get::<bool>() {
+                    println!("Mesh {} doubleSided = {}", prim.path().clone(), b);
+                    b
+                } else {
+                    false
+                }
+            } else {
+                false
+            }
+        } else {
+            false
+        }
+    };
 
     let positions = if mesh.has_points_attr() {
         let arr: vt::Array<gf::Vec3f> = mesh.points_attr().get();
@@ -188,6 +210,7 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
         normal_indices,
         normal_interpolation,
         uvs,
+        double_sided,
     }
 }
 
