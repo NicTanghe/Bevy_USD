@@ -84,7 +84,7 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
             let prop = prim.property(&double_sided_tok);
             if let Some(val) = prop.get_value() {
                 if let Some(b) = val.get::<bool>() {
-                    println!("Mesh {} doubleSided = {}", prim.path().clone(), b);
+                    // println!("Mesh {} doubleSided = {}", prim.path().clone(), b);
                     b
                 } else {
                     false

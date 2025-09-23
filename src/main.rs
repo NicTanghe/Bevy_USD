@@ -10,7 +10,7 @@ use open_rs_loader::{MeshInstance, fetch_stage_usd};
 use bevy::{pbr::DirectionalLightShadowMap, prelude::*, render::mesh::MeshTag};
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 
-const USD_STAGE_PATH: &str = "C:/Users/Nicol/CGI/year5/slay/usd/check_double.usdc";
+const USD_STAGE_PATH: &str = "C:/Users/Nicol/CGI/year5/slay/usd/helmet_bus_3.usdc";
 
 fn main() {
     App::new()
@@ -48,8 +48,14 @@ fn setup(
         .meshes
         .iter()
         .map(|mesh| {
-            let mut material = StandardMaterial::from(Color::srgb(0.7, 0.7, 0.7));
+            let mut material = StandardMaterial::from(Color::srgb(0.7, 0.4, 1.0));
             material.double_sided = mesh.double_sided;
+
+            // ✅ Ensure culling is disabled when double-sided
+            if mesh.double_sided {
+                material.cull_mode = None;
+            }
+
             materials.add(material)
         })
         .collect();
