@@ -1,23 +1,42 @@
-# initial usd implementation of usd.
+# bevy_usd_lib
 
+Bevy USD loader with labeled sub-assets and explicit spawn control.
 
-### working right 
+## Usage
 
-loading flattened stages with the following stuf.
+Add the plugin and load the root USD asset or a labeled scene:
 
-plain meshes.
+```rust
+use bevy::prelude::*;
+use bevy_usd_lib::{Usd, UsdPlugin, UsdScene, UsdSceneBundle};
 
-nested instances.
+fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
+    let _usd: Handle<Usd> = asset_server.load("models/scene.usd");
+    let scene: Handle<UsdScene> = asset_server.load("models/scene.usd#Scene0");
+    commands.spawn(UsdSceneBundle::new(scene));
+}
+```
 
-doubleSided
+## Labels
 
+- `Scene0` -> whole stage (pseudo-root).
+- `Scene:/PrimPath` -> top-level prim scene.
+- `Mesh:/PrimPath` -> mesh sub-asset.
+- `Material:/PrimPath` -> material sub-asset.
 
-### Not working
+## Spawn metadata
 
-lights
-skel
-usda,usdz
+Each spawned mesh entity includes:
 
-non flattend
+- `UsdPrimPath` (full prim path)
+- `UsdPrimName` (prim name)
 
-reversed polygon sorting.
+You can override materials after spawn by swapping `Handle<StandardMaterial>` values.
+
+## Notes
+
+The loader resolves USD file paths against:
+
+1. The configured `UsdLoaderSettings.root_path` (if set)
+2. The current working directory
+3. `./assets` in the current working directory

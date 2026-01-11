@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use glam::{Mat4, Quat, Vec3};
+use glam::{DMat4, Mat4, Quat, Vec3};
 use openusd_rs::{
     gf::{self, Matrix4d},
     tf::Token,
@@ -33,6 +33,8 @@ impl PrimvarInterpolation {
 
 #[derive(Debug, Clone)]
 pub struct MeshData {
+    pub prim_path: String,
+    pub prim_name: String,
     pub positions: Vec<[f32; 3]>,
     pub face_vertex_counts: Vec<usize>,
     pub face_vertex_indices: Vec<usize>,
@@ -49,22 +51,28 @@ pub struct MeshInstance {
     pub transform: [[f32; 4]; 4],
 }
 
-#[derive(Debug, Default, Clone)]
+#[derive(Debug, Clone)]
 pub struct SceneData {
-    pub meshes: Vec<MeshData>,
+    pub root_path: String,
     pub instances: Vec<MeshInstance>,
+}
+
+#[derive(Debug, Default, Clone)]
+pub struct StageData {
+    pub meshes: Vec<MeshData>,
+    pub scenes: Vec<SceneData>,
 }
 
 // -------- Local transform --------
 fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
-    if let Some(matrix) = usd_geom::XformOp::get_local_transform_matrix(prim) {
+    if let Some(matrix) = usd_geom::XformOp::get_local_matrix(prim) {
         return Some(matrix);
     }
 
     let single_tok = Token::new("xformOp:transform");
     if prim.has_attribute(&single_tok) {
         let attr = prim.attribute(&single_tok);
-        return Some(attr.get::<Matrix4d>());
+        return attr.try_get::<Matrix4d>();
     }
 
     None
@@ -72,61 +80,53 @@ fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
 
 // -------- Mesh data --------
 fn get_mesh_data(prim: &usd::Prim) -> MeshData {
+    let prim_path = prim.path().to_string();
+    let prim_name = prim.name().as_str().to_string();
     let path = prim.path().clone();
     let stage = prim.stage();
     let mesh = usd_geom::Mesh::define(&stage, path);
+    let primvars = usd_geom::PrimvarsApi::new(mesh.prim());
 
     // --- doubleSided
     let double_sided = {
-        let prim = mesh.prim();
         let double_sided_tok = Token::new("doubleSided");
-        let prop = prim.property(&double_sided_tok);
-
-        if prop.is_valid() {
-            if let Some(val) = prop.get_value() {
-                val.get::<bool>().unwrap_or(false)
-            } else {
-                false
-            }
-        } else {
-            false
-        }
+        mesh.prim()
+            .attribute(&double_sided_tok)
+            .try_get::<bool>()
+            .unwrap_or(false)
     };
 
     // --- positions
-    let points_attr = mesh.points_attr();
-    let positions = if points_attr.is_valid() {
-        let arr: vt::Array<gf::Vec3f> = points_attr.get();
-        arr.iter().map(|p| [p.x, p.y, p.z]).collect()
-    } else {
-        Vec::new()
-    };
+    let positions_arr = mesh
+        .points_attr()
+        .try_get::<vt::Array<gf::Vec3f>>()
+        .unwrap_or_default();
+    let positions = positions_arr
+        .iter()
+        .map(|p| [p.x, p.y, p.z])
+        .collect();
 
     // --- faceVertexCounts
-    let fvc_attr = mesh.face_vertex_counts_attr();
-    let face_vertex_counts = if fvc_attr.is_valid() {
-        let arr: vt::Array<i32> = fvc_attr.get();
-        arr.iter().map(|&c| c as usize).collect()
-    } else {
-        Vec::new()
-    };
+    let fvc_arr = mesh
+        .face_vertex_counts_attr()
+        .try_get::<vt::Array<i32>>()
+        .unwrap_or_default();
+    let face_vertex_counts = fvc_arr.iter().map(|&c| c as usize).collect();
 
     // --- faceVertexIndices
-    let fvi_attr = mesh.face_vertex_indices_attr();
-    let face_vertex_indices = if fvi_attr.is_valid() {
-        let arr: vt::Array<i32> = fvi_attr.get();
-        arr.iter().map(|&i| i as usize).collect()
-    } else {
-        Vec::new()
-    };
+    let fvi_arr = mesh
+        .face_vertex_indices_attr()
+        .try_get::<vt::Array<i32>>()
+        .unwrap_or_default();
+    let face_vertex_indices = fvi_arr.iter().map(|&i| i as usize).collect();
 
     // --- normals / primvars:normals
     let normals_token = Token::new("normals");
     let normals_attr = mesh.normals_attr();
+    let normals_arr = normals_attr.try_get::<vt::Array<gf::Vec3f>>();
 
-    let (normals, normal_indices, normal_interpolation) = if normals_attr.is_valid() {
+    let (normals, normal_indices, normal_interpolation) = if let Some(arr) = normals_arr {
         // direct normals attr
-        let arr: vt::Array<gf::Vec3f> = normals_attr.get();
         let normals = if !arr.is_empty() {
             Some(arr.iter().map(|n| [n.x, n.y, n.z]).collect())
         } else {
@@ -138,26 +138,26 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
             .map(|token| PrimvarInterpolation::from_token(token.as_str()));
 
         let indices_token = Token::new("normals:indices");
-        let idx_attr = mesh.prim().attribute(&indices_token);
-        let normal_indices = if idx_attr.is_valid() {
-            let idx_arr: vt::Array<i32> = idx_attr.get();
-            if !idx_arr.is_empty() {
-                Some(idx_arr.iter().map(|&i| i as usize).collect())
-            } else {
-                None
-            }
-        } else {
-            None
-        };
+        let normal_indices = mesh
+            .prim()
+            .attribute(&indices_token)
+            .try_get::<vt::Array<i32>>()
+            .and_then(|idx_arr| {
+                if idx_arr.is_empty() {
+                    None
+                } else {
+                    Some(idx_arr.iter().map(|&i| i as usize).collect())
+                }
+            });
 
         (normals, normal_indices, interpolation)
     } else {
         // primvar normals
-        let attr = mesh.primvar(&normals_token);
-        if attr.is_valid() {
-            let normals = attr
-                .get_value()
-                .and_then(|value| value.get::<vt::Array<gf::Vec3f>>())
+        let primvar = primvars.primvar(&normals_token);
+        if primvar.attr.is_valid() {
+            let normals = primvar
+                .attr
+                .try_get::<vt::Array<gf::Vec3f>>()
                 .and_then(|arr| {
                     if arr.is_empty() {
                         None
@@ -166,22 +166,18 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
                     }
                 });
 
-            let interpolation = attr
+            let interpolation = primvar
+                .attr
                 .metadata::<Token>(&Token::new("interpolation"))
                 .map(|token| PrimvarInterpolation::from_token(token.as_str()));
 
-            let indices_token = Token::new("primvars:normals:indices");
-            let idx_attr = mesh.prim().attribute(&indices_token);
-            let normal_indices = if idx_attr.is_valid() {
-                let idx_arr: vt::Array<i32> = idx_attr.get();
-                if !idx_arr.is_empty() {
-                    Some(idx_arr.iter().map(|&i| i as usize).collect())
-                } else {
+            let normal_indices = primvar.indices().and_then(|idx_arr| {
+                if idx_arr.is_empty() {
                     None
+                } else {
+                    Some(idx_arr.iter().map(|&i| i as usize).collect())
                 }
-            } else {
-                None
-            };
+            });
 
             (normals, normal_indices, interpolation)
         } else {
@@ -190,11 +186,11 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     };
 
     // --- UVs
-    let uv_attr = mesh.primvar(&Token::new("st"));
-    let uvs = if uv_attr.is_valid() {
-        uv_attr
-            .get_value()
-            .and_then(|val| val.get::<vt::Array<gf::Vec2f>>())
+    let uv_primvar = primvars.primvar(&Token::new("st"));
+    let uvs = if uv_primvar.attr.is_valid() {
+        uv_primvar
+            .attr
+            .try_get::<vt::Array<gf::Vec2f>>()
             .and_then(|arr| {
                 if arr.is_empty() {
                     None
@@ -207,6 +203,8 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     };
 
     MeshData {
+        prim_path,
+        prim_name,
         positions,
         face_vertex_counts,
         face_vertex_indices,
@@ -220,7 +218,7 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
 
 #[cfg_attr(not(test), allow(dead_code))]
 fn matrix4d_to_mat4(matrix: &Matrix4d) -> Mat4 {
-    let src = matrix.as_array();
+    let src = &matrix.data;
     let mut cols = [0.0f32; 16];
     for col in 0..4 {
         for row in 0..4 {
@@ -238,11 +236,11 @@ fn mat4_to_matrix4d(mat: Mat4) -> Matrix4d {
             data[row][col] = cols[col * 4 + row] as f64;
         }
     }
-    Matrix4d::from_array(data)
+    Matrix4d { data }
 }
 
 fn matrix4d_to_f32_array(matrix: &Matrix4d) -> [[f32; 4]; 4] {
-    let src = matrix.as_array();
+    let src = &matrix.data;
     let mut out = [[0.0f32; 4]; 4];
     for row in 0..4 {
         for col in 0..4 {
@@ -250,6 +248,31 @@ fn matrix4d_to_f32_array(matrix: &Matrix4d) -> [[f32; 4]; 4] {
         }
     }
     out
+}
+
+fn matrix4d_to_dmat4(matrix: &Matrix4d) -> DMat4 {
+    DMat4::from_cols_array_2d(&matrix.data).transpose()
+}
+
+fn dmat4_to_matrix4d(matrix: DMat4) -> Matrix4d {
+    Matrix4d {
+        data: matrix.transpose().to_cols_array_2d(),
+    }
+}
+
+fn matrix4d_identity() -> Matrix4d {
+    Matrix4d {
+        data: [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ],
+    }
+}
+
+fn matrix4d_mul(lhs: &Matrix4d, rhs: &Matrix4d) -> Matrix4d {
+    dmat4_to_matrix4d(matrix4d_to_dmat4(lhs) * matrix4d_to_dmat4(rhs))
 }
 
 fn make_trs_matrix(pos: [f32; 3], rot: [f32; 4], scale: [f32; 3]) -> Matrix4d {
@@ -267,15 +290,15 @@ fn make_trs_matrix(pos: [f32; 3], rot: [f32; 4], scale: [f32; 3]) -> Matrix4d {
 }
 
 // -------- Scene builder --------
-struct SceneBuilder {
-    data: SceneData,
+struct MeshStore {
+    meshes: Vec<MeshData>,
     mesh_lookup: HashMap<String, usize>,
 }
 
-impl SceneBuilder {
+impl MeshStore {
     fn new() -> Self {
         Self {
-            data: SceneData::default(),
+            meshes: Vec::new(),
             mesh_lookup: HashMap::new(),
         }
     }
@@ -287,22 +310,37 @@ impl SceneBuilder {
         }
 
         let mesh_data = get_mesh_data(prim);
-        let index = self.data.meshes.len();
-        self.data.meshes.push(mesh_data);
+        let index = self.meshes.len();
+        self.meshes.push(mesh_data);
         self.mesh_lookup.insert(key, index);
         index
+    }
+}
+
+struct SceneBuilder {
+    instances: Vec<MeshInstance>,
+}
+
+impl SceneBuilder {
+    fn new() -> Self {
+        Self {
+            instances: Vec::new(),
+        }
     }
 
     fn push_instance(&mut self, mesh_index: usize, xf: &Matrix4d) {
         let transform = matrix4d_to_f32_array(xf);
-        self.data.instances.push(MeshInstance {
+        self.instances.push(MeshInstance {
             mesh_index,
             transform,
         });
     }
 
-    fn into_scene(self) -> SceneData {
-        self.data
+    fn into_scene(self, root_path: String) -> SceneData {
+        SceneData {
+            root_path,
+            instances: self.instances,
+        }
     }
 }
 
@@ -311,41 +349,38 @@ fn expand_prim(
     stage: &usd::Stage,
     prim: &usd::Prim,
     parent_xf: &Matrix4d,
+    mesh_store: &mut MeshStore,
     scene: &mut SceneBuilder,
 ) {
-    let local = get_local_transform(prim)
-        .map(|m| m.transpose())
-        .unwrap_or_else(Matrix4d::identity);
-    let world_xf = parent_xf.post_mult(&local);
+    let local = get_local_transform(prim).unwrap_or_else(matrix4d_identity);
+    let world_xf = matrix4d_mul(parent_xf, &local);
 
     match prim.type_name().as_str() {
         "Mesh" => {
-            let mesh_index = scene.get_or_insert_mesh(prim);
+            let mesh_index = mesh_store.get_or_insert_mesh(prim);
             scene.push_instance(mesh_index, &world_xf);
         }
         "PointInstancer" => {
             let inst = usd_geom::PointInstancer::define(&stage, prim.path().clone());
 
-            let indices: Vec<usize> = inst
+            let indices_arr = inst
                 .proto_indices_attr()
-                .get::<vt::Array<i32>>()
-                .iter()
-                .map(|&i| i as usize)
-                .collect();
+                .try_get::<vt::Array<i32>>()
+                .unwrap_or_default();
+            let indices: Vec<usize> = indices_arr.iter().map(|&i| i as usize).collect();
 
-            let positions: Vec<[f32; 3]> = inst
+            let positions_arr = inst
                 .positions_attr()
-                .get::<vt::Array<gf::Vec3f>>()
-                .iter()
-                .map(|p| [p.x, p.y, p.z])
-                .collect();
+                .try_get::<vt::Array<gf::Vec3f>>()
+                .unwrap_or_default();
+            let positions: Vec<[f32; 3]> =
+                positions_arr.iter().map(|p| [p.x, p.y, p.z]).collect();
 
-            let scales: Vec<[f32; 3]> = inst
+            let scales_arr = inst
                 .scales_attr()
-                .get::<vt::Array<gf::Vec3f>>()
-                .iter()
-                .map(|p| [p.x, p.y, p.z])
-                .collect();
+                .try_get::<vt::Array<gf::Vec3f>>()
+                .unwrap_or_default();
+            let scales: Vec<[f32; 3]> = scales_arr.iter().map(|p| [p.x, p.y, p.z]).collect();
 
             let rotations: Vec<[f32; 4]> = match inst.orientations_attr().get_value() {
                 Some(val) => {
@@ -375,33 +410,48 @@ fn expand_prim(
                         let scale = *scales.get(point_idx).unwrap_or(&[1.0, 1.0, 1.0]);
                         let rot = *rotations.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0, 1.0]);
                         let xf = make_trs_matrix(pos, rot, scale);
-                        let new_xf = world_xf.post_mult(&xf);
-                        expand_prim(stage, &proto, &new_xf, scene);
+                        let new_xf = matrix4d_mul(&world_xf, &xf);
+                        expand_prim(stage, &proto, &new_xf, mesh_store, scene);
                     }
                 }
             }
         }
         _ => {
             for child in prim.children() {
-                expand_prim(stage, &child, &world_xf, scene);
+                expand_prim(stage, &child, &world_xf, mesh_store, scene);
             }
         }
     }
 }
 
-// -------- Entry point --------
-pub fn fetch_stage_usd(stagep: &str) -> SceneData {
-    let stage = usd::Stage::open(stagep);
+fn build_scene_data(stage: &usd::Stage, root: &usd::Prim, mesh_store: &mut MeshStore) -> SceneData {
     let mut builder = SceneBuilder::new();
+    let identity = matrix4d_identity();
 
-    expand_prim(
-        &stage,
-        &stage.pseudo_root(),
-        &Matrix4d::identity(),
-        &mut builder,
-    );
+    expand_prim(stage, root, &identity, mesh_store, &mut builder);
 
-    builder.into_scene()
+    builder.into_scene(root.path().to_string())
+}
+
+// -------- Entry point --------
+pub fn load_stage(stage_path: &str) -> StageData {
+    let stage = usd::Stage::open(stage_path);
+    build_stage_data(&stage)
+}
+
+pub fn build_stage_data(stage: &usd::Stage) -> StageData {
+    let mut mesh_store = MeshStore::new();
+    let mut scenes = Vec::new();
+
+    scenes.push(build_scene_data(stage, &stage.pseudo_root(), &mut mesh_store));
+    for child in stage.pseudo_root().children() {
+        scenes.push(build_scene_data(stage, &child, &mut mesh_store));
+    }
+
+    StageData {
+        meshes: mesh_store.meshes,
+        scenes,
+    }
 }
 
 #[cfg(test)]

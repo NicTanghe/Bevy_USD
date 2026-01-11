@@ -1,5 +1,5 @@
 [package]
-name = "usd_loader"
+name = "bevy_usd_lib"
 version = "0.1.0"
 edition = "2024"
 
@@ -13,11 +13,15 @@ opt-level = 1
 opt-level = 3
 
 
+[lib]
+path = "src/lib.rs"
+
 [dependencies]
-bevy = { version ="0.16.1", features = ["dynamic_linking"]}
-bevy_panorbit_camera = "0.27.1"
-downcast-rs = "2.0.1"
+bevy = { version = "0.17", features = ["dynamic_linking"]}
 glam = "0.30.5"
-log = { version = "*", features = ["max_level_debug", "release_max_level_warn"] }
-openusd-rs = { path = "C:/Users/Nicol/dev/rust/usd/openusd-rs" }
+openusd_rs = { package = "openusd-rs", path = "../openusd-rs" }
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+bevy_panorbit_camera = "0.33.0"
 
