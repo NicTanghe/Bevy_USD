@@ -185,3 +185,91 @@ mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Pr
 mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
 mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
 assets built in 474.5103ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 25.0896165s: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 462.5381ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 25.1266713s: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 446.5898ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 24.0242102s: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 225.5829ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 25.0325268s: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 239.8868ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 25.0894175s: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 259.2462ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 12.2997026s: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 237.2674ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 449.4803ms: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 241.9928ms
+load start: C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+stage loaded in 446.6812ms: meshes=8 scenes=2
+mesh 1/8: /scene_1/shed/roof/roof/instances/Prototypes/obj_0/Aset_tiles__S_tmrkdgcjw_LOD0 points=4275 indices=17360
+mesh 2/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_0/mesh_0 points=294914 indices=1179648
+mesh 3/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_1/mesh_0 points=294914 indices=1179648
+mesh 4/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_2/mesh_0 points=294914 indices=1179648
+mesh 5/8: /scene_1/shed/walls/geo/mortar/instances/Prototypes/obj_3/mesh_0 points=294914 indices=1179648
+mesh 6/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_0/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_02_LOD0 points=4405 indices=17900
+mesh 7/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_1/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_00_LOD0 points=4356 indices=17736
+mesh 8/8: /scene_1/shed/walls/geo/bricks/instances/Prototypes/obj_2/instances/Prototypes/obj_0/Aset_brick_rubble_S_tlslbeqva_01_LOD0 points=3157 indices=12930
+assets built in 272.6922ms

@@ -1,0 +1,32 @@
+Lag Fix Plan (USD Composing)
+
+Goal: reduce loader CPU time (expand_prim / resolve_value churn) without breaking instance transforms.
+
+Step 1 - Baseline + scope
+- Capture a short flamegraph after the scene is fully loaded (let it run 10-20s, then quit).
+- Confirm whether the worst lag is during load, after load, or both.
+Checkpoint: continue to caching work, or adjust scope?
+
+Step 2 - Xform cache (done)
+- Add a transform cache keyed by prim path in open_rs_loader (local xform matrix).
+- Ensure get_local_transform uses the cache to avoid recomputing xformOpOrder and attribute reads.
+- Add optional debug counters (hits/misses) behind OPENUSD_DEBUG_STAGE.
+Checkpoint: proceed to prototype cache?
+
+Step 3 - Prototype mesh cache (implemented, needs validation)
+- For each PointInstancer, resolve prototype prims once and build a cached list of mesh instances
+  (mesh_index + local transform) for each prototype root.
+- In expand_prim, replace per-instance recursion with: instance_xf * cached_proto_xf.
+- Keep behavior identical for non-instanced meshes.
+Checkpoint: validate transform correctness with the barn scene?
+
+Step 4 - Validation + regression checks
+- Compare instance counts, bounds, and a few prim paths to prior output.
+- Spot-check cameras and stairs orientation.
+- Record new flamegraph to confirm loader cost dropped.
+Checkpoint: proceed to optional render/runtime optimizations?
+
+Step 5 - Optional runtime improvements (only if needed)
+- Add coarse per-batch AABBs so frustum culling can drop whole instance batches.
+- Consider splitting batches by instancer to reduce overdraw.
+Checkpoint: pick which runtime change(s) to implement.

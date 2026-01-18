@@ -26,3 +26,9 @@ bytemuck = { version = "1", features = ["derive"] }
 [dev-dependencies]
 bevy_panorbit_camera = "0.33.0"
 
+
+[profile.release]
+debug = true
+lto = "off"
+codegen-units = 16
+incremental = false

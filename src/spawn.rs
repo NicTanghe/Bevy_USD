@@ -25,7 +25,6 @@ impl DebugAssets {
             base_color: Color::srgba(0.1, 0.9, 1.0, 0.12),
             alpha_mode: AlphaMode::Blend,
             unlit: true,
-            cull_mode: None,
             ..default()
         });
         let min_material = materials.add(StandardMaterial {

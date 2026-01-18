@@ -1,29 +1,4 @@
 viewer_cameras start: USD_scenes/shed/barn.usdc
 usd cameras found: 1
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
-usd load_state: Loading
 usd asset loaded. Spawning default scene.
 framed camera to bounds min=Vec3(-21.155201, 0.7475434, -0.5454064) max=Vec3(-14.318151, 5.0009403, 4.4049087)

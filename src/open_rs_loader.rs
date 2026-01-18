@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use glam::{DMat4, DQuat, DVec3, Mat4, Quat, Vec3};
 use openusd_rs::{
@@ -43,6 +43,7 @@ pub struct MeshData {
     pub normal_indices: Option<Vec<usize>>,
     pub normal_interpolation: Option<PrimvarInterpolation>,
     pub uvs: Option<Vec<[f32; 2]>>,
+    #[allow(dead_code)]
     pub double_sided: bool,
     pub left_handed: bool,
 }
@@ -51,6 +52,12 @@ pub struct MeshData {
 pub struct MeshInstance {
     pub mesh_index: usize,
     pub transform: [[f32; 4]; 4],
+}
+
+#[derive(Debug, Clone, Copy)]
+struct ProtoMeshInstance {
+    mesh_index: usize,
+    transform: Matrix4d,
 }
 
 #[derive(Debug, Clone)]
@@ -656,6 +663,172 @@ fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
     None
 }
 
+type LocalTransformCache = HashMap<String, Option<Matrix4d>>;
+type PrototypeCache = HashMap<String, Vec<ProtoMeshInstance>>;
+type PrototypeStack = HashSet<String>;
+
+fn get_local_transform_cached(
+    prim: &usd::Prim,
+    cache: &mut LocalTransformCache,
+) -> Option<Matrix4d> {
+    let key = prim.path().to_string();
+    if let Some(value) = cache.get(&key) {
+        return *value;
+    }
+
+    let value = get_local_transform(prim);
+    cache.insert(key, value);
+    value
+}
+
+fn get_proto_meshes<'a>(
+    stage: &usd::Stage,
+    prim: &usd::Prim,
+    mesh_store: &mut MeshStore,
+    xform_cache: &mut LocalTransformCache,
+    proto_cache: &'a mut PrototypeCache,
+    proto_stack: &mut PrototypeStack,
+) -> &'a [ProtoMeshInstance] {
+    let key = prim.path().to_string();
+    if !proto_cache.contains_key(&key) {
+        if !proto_stack.insert(key.clone()) {
+            return &[];
+        }
+
+        let mut out = Vec::new();
+        let identity = matrix4d_identity();
+        collect_proto_meshes(
+            stage,
+            prim,
+            &identity,
+            mesh_store,
+            xform_cache,
+            proto_cache,
+            proto_stack,
+            &mut out,
+        );
+
+        proto_stack.remove(&key);
+        proto_cache.insert(key.clone(), out);
+    }
+
+    proto_cache.get(&key).map(|list| list.as_slice()).unwrap_or(&[])
+}
+
+fn collect_proto_meshes(
+    stage: &usd::Stage,
+    prim: &usd::Prim,
+    parent_xf: &Matrix4d,
+    mesh_store: &mut MeshStore,
+    xform_cache: &mut LocalTransformCache,
+    proto_cache: &mut PrototypeCache,
+    proto_stack: &mut PrototypeStack,
+    out: &mut Vec<ProtoMeshInstance>,
+) {
+    let local = get_local_transform_cached(prim, xform_cache).unwrap_or_else(matrix4d_identity);
+    let world_xf = matrix4d_mul(parent_xf, &local);
+
+    match prim.type_name().as_str() {
+        "Mesh" => {
+            let mesh_index = mesh_store.get_or_insert_mesh(prim);
+            out.push(ProtoMeshInstance {
+                mesh_index,
+                transform: world_xf,
+            });
+        }
+        "PointInstancer" => {
+            let inst = usd_geom::PointInstancer::define(&stage, prim.path().clone());
+
+            let indices = read_index_array(&inst.proto_indices_attr());
+            let positions = read_vec3_array(&inst.positions_attr());
+            let scales = read_vec3_array(&inst.scales_attr());
+
+            let mut rotations = read_quat_attr(&inst.orientations_attr());
+            if rotations.is_empty() {
+                rotations = read_quat_attr(&inst.orientationsf_attr());
+            }
+
+            let proto_children = collect_prototype_children(prim);
+
+            let mut targets = inst.prototypes_rel().targets();
+            if targets.is_empty() {
+                targets = proto_children
+                    .iter()
+                    .map(|(_, path)| path.clone())
+                    .collect();
+            } else if !proto_children.is_empty() {
+                let mut remapped = Vec::with_capacity(targets.len());
+                for target in &targets {
+                    let proto = stage.prim_at_path(target.clone());
+                    if proto.is_valid() {
+                        remapped.push(target.clone());
+                        continue;
+                    }
+
+                    let target_name = target.name_token();
+                    if let Some((_, path)) = proto_children
+                        .iter()
+                        .find(|(name, _)| name.as_str() == target_name.as_str())
+                    {
+                        remapped.push(path.clone());
+                    }
+                }
+                if !remapped.is_empty() {
+                    targets = remapped;
+                }
+            }
+
+            for (proto_idx, path) in targets.iter().enumerate() {
+                let proto = stage.prim_at_path(path.clone());
+                if !proto.is_valid() {
+                    continue;
+                }
+                let proto_meshes = get_proto_meshes(
+                    stage,
+                    &proto,
+                    mesh_store,
+                    xform_cache,
+                    proto_cache,
+                    proto_stack,
+                );
+                if proto_meshes.is_empty() {
+                    continue;
+                }
+                for (point_idx, &pi) in indices.iter().enumerate() {
+                    if pi == proto_idx {
+                        let pos = *positions.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0]);
+                        let scale = *scales.get(point_idx).unwrap_or(&[1.0, 1.0, 1.0]);
+                        let rot = *rotations.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0, 1.0]);
+                        let xf = make_trs_matrix(pos, rot, scale);
+                        let inst_xf = matrix4d_mul(&world_xf, &xf);
+                        for proto_mesh in proto_meshes {
+                            let mesh_xf = matrix4d_mul(&inst_xf, &proto_mesh.transform);
+                            out.push(ProtoMeshInstance {
+                                mesh_index: proto_mesh.mesh_index,
+                                transform: mesh_xf,
+                            });
+                        }
+                    }
+                }
+            }
+        }
+        _ => {
+            for child in prim.children() {
+                collect_proto_meshes(
+                    stage,
+                    &child,
+                    &world_xf,
+                    mesh_store,
+                    xform_cache,
+                    proto_cache,
+                    proto_stack,
+                    out,
+                );
+            }
+        }
+    }
+}
+
 // -------- Mesh data --------
 fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     let prim_path = prim.path().to_string();
@@ -928,9 +1101,12 @@ fn expand_prim(
     prim: &usd::Prim,
     parent_xf: &Matrix4d,
     mesh_store: &mut MeshStore,
+    xform_cache: &mut LocalTransformCache,
+    proto_cache: &mut PrototypeCache,
+    proto_stack: &mut PrototypeStack,
     scene: &mut SceneBuilder,
 ) {
-    let local = get_local_transform(prim).unwrap_or_else(matrix4d_identity);
+    let local = get_local_transform_cached(prim, xform_cache).unwrap_or_else(matrix4d_identity);
     let world_xf = matrix4d_mul(parent_xf, &local);
 
     match prim.type_name().as_str() {
@@ -985,31 +1161,70 @@ fn expand_prim(
                 if !proto.is_valid() {
                     continue;
                 }
+                let proto_meshes = get_proto_meshes(
+                    stage,
+                    &proto,
+                    mesh_store,
+                    xform_cache,
+                    proto_cache,
+                    proto_stack,
+                );
+                if proto_meshes.is_empty() {
+                    continue;
+                }
                 for (point_idx, &pi) in indices.iter().enumerate() {
                     if pi == proto_idx {
                         let pos = *positions.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0]);
                         let scale = *scales.get(point_idx).unwrap_or(&[1.0, 1.0, 1.0]);
                         let rot = *rotations.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0, 1.0]);
                         let xf = make_trs_matrix(pos, rot, scale);
-                        let new_xf = matrix4d_mul(&world_xf, &xf);
-                        expand_prim(stage, &proto, &new_xf, mesh_store, scene);
+                        let inst_xf = matrix4d_mul(&world_xf, &xf);
+                        for proto_mesh in proto_meshes {
+                            let mesh_xf = matrix4d_mul(&inst_xf, &proto_mesh.transform);
+                            scene.push_instance(proto_mesh.mesh_index, &mesh_xf);
+                        }
                     }
                 }
             }
         }
         _ => {
             for child in prim.children() {
-                expand_prim(stage, &child, &world_xf, mesh_store, scene);
+                expand_prim(
+                    stage,
+                    &child,
+                    &world_xf,
+                    mesh_store,
+                    xform_cache,
+                    proto_cache,
+                    proto_stack,
+                    scene,
+                );
             }
         }
     }
 }
 
-fn build_scene_data(stage: &usd::Stage, root: &usd::Prim, mesh_store: &mut MeshStore) -> SceneData {
+fn build_scene_data(
+    stage: &usd::Stage,
+    root: &usd::Prim,
+    mesh_store: &mut MeshStore,
+    xform_cache: &mut LocalTransformCache,
+    proto_cache: &mut PrototypeCache,
+    proto_stack: &mut PrototypeStack,
+) -> SceneData {
     let mut builder = SceneBuilder::new();
     let identity = matrix4d_identity();
 
-    expand_prim(stage, root, &identity, mesh_store, &mut builder);
+    expand_prim(
+        stage,
+        root,
+        &identity,
+        mesh_store,
+        xform_cache,
+        proto_cache,
+        proto_stack,
+        &mut builder,
+    );
 
     builder.into_scene(root.path().to_string())
 }
@@ -1026,10 +1241,27 @@ pub fn load_stage(stage_path: &str) -> StageData {
 pub fn build_stage_data(stage: &usd::Stage) -> StageData {
     let mut mesh_store = MeshStore::new();
     let mut scenes = Vec::new();
+    let mut xform_cache = LocalTransformCache::new();
+    let mut proto_cache = PrototypeCache::new();
+    let mut proto_stack = PrototypeStack::new();
 
-    scenes.push(build_scene_data(stage, &stage.pseudo_root(), &mut mesh_store));
+    scenes.push(build_scene_data(
+        stage,
+        &stage.pseudo_root(),
+        &mut mesh_store,
+        &mut xform_cache,
+        &mut proto_cache,
+        &mut proto_stack,
+    ));
     for child in stage.pseudo_root().children() {
-        scenes.push(build_scene_data(stage, &child, &mut mesh_store));
+        scenes.push(build_scene_data(
+            stage,
+            &child,
+            &mut mesh_store,
+            &mut xform_cache,
+            &mut proto_cache,
+            &mut proto_stack,
+        ));
     }
 
     StageData {

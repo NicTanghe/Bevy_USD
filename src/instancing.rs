@@ -162,7 +162,6 @@ impl SpecializedMeshPipeline for UsdInstancingPipeline {
             ],
         });
 
-        descriptor.primitive.cull_mode = None;
         Ok(descriptor)
     }
 }

@@ -232,13 +232,8 @@ fn build_instances(
         .collect()
 }
 
-fn material_from_mesh(mesh: &MeshData) -> StandardMaterial {
-    let mut material = StandardMaterial::from(Color::srgb(0.7, 0.4, 1.0));
-    material.double_sided = mesh.double_sided;
-    if mesh.double_sided {
-        material.cull_mode = None;
-    }
-    material
+fn material_from_mesh(_mesh: &MeshData) -> StandardMaterial {
+    StandardMaterial::from(Color::srgb(0.7, 0.4, 1.0))
 }
 
 fn instance_to_transform(instance: &MeshInstance) -> Transform {
