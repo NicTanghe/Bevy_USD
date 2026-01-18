@@ -3,9 +3,10 @@ use std::collections::HashMap;
 use glam::{DMat4, DQuat, DVec3, Mat4, Quat, Vec3};
 use openusd_rs::{
     gf::{self, Matrix4d},
-    tf::Token,
+    sdf, tf::Token,
     usd, usd_geom, vt,
 };
+use std::cmp::Ordering;
 
 // -------- Data structs --------
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -43,6 +44,7 @@ pub struct MeshData {
     pub normal_interpolation: Option<PrimvarInterpolation>,
     pub uvs: Option<Vec<[f32; 2]>>,
     pub double_sided: bool,
+    pub left_handed: bool,
 }
 
 #[derive(Debug, Clone)]
@@ -61,6 +63,46 @@ pub struct SceneData {
 pub struct StageData {
     pub meshes: Vec<MeshData>,
     pub scenes: Vec<SceneData>,
+}
+
+#[derive(Default)]
+struct StageSummary {
+    root_children: usize,
+    total_prims: usize,
+    mesh_prims: usize,
+    instancer_prims: usize,
+    xform_prims: usize,
+    other_prims: usize,
+    prims_with_refs: usize,
+    prims_with_payloads: usize,
+    mesh_with_points: usize,
+    mesh_missing_points: usize,
+    mesh_with_indices: usize,
+    mesh_missing_indices: usize,
+    mesh_samples: Vec<MeshSample>,
+}
+
+struct MeshSample {
+    path: String,
+    points_len: usize,
+    indices_len: usize,
+}
+
+struct InstancerSample {
+    path: String,
+    targets: usize,
+    indices: usize,
+    positions: usize,
+    scales: usize,
+    rotations: usize,
+    proto_children: usize,
+    proto_indices_type: String,
+    positions_type: String,
+    scales_type: String,
+    orientations_type: String,
+    orientationsf_type: String,
+    target_preview: Option<String>,
+    proto_preview: Option<String>,
 }
 
 // -------- Local transform --------
@@ -120,6 +162,351 @@ impl TryFrom<&str> for XformOpType {
             "transform" => XformOpType::Transform,
             _ => return Err(()),
         })
+    }
+}
+
+fn attr_value_or_first_sample(attr: &usd::Attribute) -> Option<vt::Value> {
+    if let Some(value) = attr.get_value() {
+        return Some(value);
+    }
+
+    let samples = attr.metadata::<sdf::TimeSampleMap>(&sdf::FIELD_KEYS.time_samples)?;
+    let sample = samples
+        .iter()
+        .min_by(|a, b| a.0.partial_cmp(&b.0).unwrap_or(Ordering::Equal))?;
+    Some(sample.1.clone())
+}
+
+fn attr_typed_or_first_sample<T: vt::ValueType>(attr: &usd::Attribute) -> Option<T> {
+    attr_value_or_first_sample(attr).and_then(|value| value.get::<T>())
+}
+
+fn read_index_array(attr: &usd::Attribute) -> Vec<usize> {
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<i32>>(attr) {
+        return arr
+            .iter()
+            .filter_map(|&v| usize::try_from(v).ok())
+            .collect();
+    }
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<i64>>(attr) {
+        return arr
+            .iter()
+            .filter_map(|&v| usize::try_from(v).ok())
+            .collect();
+    }
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<u32>>(attr) {
+        return arr
+            .iter()
+            .filter_map(|&v| usize::try_from(v).ok())
+            .collect();
+    }
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<u64>>(attr) {
+        return arr
+            .iter()
+            .filter_map(|&v| usize::try_from(v).ok())
+            .collect();
+    }
+    Vec::new()
+}
+
+fn read_vec3_array(attr: &usd::Attribute) -> Vec<[f32; 3]> {
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<gf::Vec3f>>(attr) {
+        return arr.iter().map(|v| [v.x, v.y, v.z]).collect();
+    }
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<gf::Vec3d>>(attr) {
+        return arr
+            .iter()
+            .map(|v| [v.x as f32, v.y as f32, v.z as f32])
+            .collect();
+    }
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<gf::Vec3h>>(attr) {
+        return arr
+            .iter()
+            .map(|v| [v.x.into(), v.y.into(), v.z.into()])
+            .collect();
+    }
+    if let Some(arr) = attr_typed_or_first_sample::<vt::Array<gf::Vec3i>>(attr) {
+        return arr
+            .iter()
+            .map(|v| [v.x as f32, v.y as f32, v.z as f32])
+            .collect();
+    }
+    Vec::new()
+}
+
+fn read_quat_array(value: vt::Value) -> Vec<[f32; 4]> {
+    if let Some(arr) = value.get::<vt::Array<gf::Quatf>>() {
+        return arr.iter().map(|q| [q.i, q.j, q.k, q.w]).collect();
+    }
+    if let Some(arr) = value.get::<vt::Array<gf::Quatd>>() {
+        return arr
+            .iter()
+            .map(|q| [q.i as f32, q.j as f32, q.k as f32, q.w as f32])
+            .collect();
+    }
+    if let Some(arr) = value.get::<vt::Array<gf::Quath>>() {
+        return arr
+            .iter()
+            .map(|q| [q.i.into(), q.j.into(), q.k.into(), q.w.into()])
+            .collect();
+    }
+    Vec::new()
+}
+
+fn read_quat_attr(attr: &usd::Attribute) -> Vec<[f32; 4]> {
+    attr_value_or_first_sample(attr)
+        .map(read_quat_array)
+        .unwrap_or_default()
+}
+
+fn collect_prototype_children(prim: &usd::Prim) -> Vec<(Token, sdf::Path)> {
+    for child in prim.children() {
+        let name_token = child.name();
+        let name = name_token.as_str();
+        if name == "Prototypes" || name == "prototypes" {
+            return child
+                .children()
+                .map(|proto| (proto.name(), proto.path().clone()))
+                .collect();
+        }
+    }
+    Vec::new()
+}
+
+fn collect_stage_summary(stage: &usd::Stage) -> StageSummary {
+    let root = stage.pseudo_root();
+    let mut summary = StageSummary::default();
+    summary.root_children = root.children().count();
+    for child in root.children() {
+        summarize_prim(stage, &child, &mut summary);
+    }
+    summary
+}
+
+fn summarize_prim(stage: &usd::Stage, prim: &usd::Prim, summary: &mut StageSummary) {
+    summary.total_prims += 1;
+
+    match prim.type_name().as_str() {
+        "Mesh" => {
+            summary.mesh_prims += 1;
+
+            let mesh = usd_geom::Mesh::define(stage, prim.path().clone());
+            let points_len = attr_typed_or_first_sample::<vt::Array<gf::Vec3f>>(&mesh.points_attr())
+                .map(|arr| arr.len())
+                .unwrap_or(0);
+            let indices_len =
+                attr_typed_or_first_sample::<vt::Array<i32>>(&mesh.face_vertex_indices_attr())
+                    .map(|arr| arr.len())
+                    .unwrap_or(0);
+
+            if points_len == 0 {
+                summary.mesh_missing_points += 1;
+            } else {
+                summary.mesh_with_points += 1;
+            }
+
+            if indices_len == 0 {
+                summary.mesh_missing_indices += 1;
+            } else {
+                summary.mesh_with_indices += 1;
+            }
+
+            if summary.mesh_samples.len() < 3 {
+                summary.mesh_samples.push(MeshSample {
+                    path: prim.path().to_string(),
+                    points_len,
+                    indices_len,
+                });
+            }
+        }
+        "PointInstancer" => summary.instancer_prims += 1,
+        "Xform" => summary.xform_prims += 1,
+        _ => summary.other_prims += 1,
+    }
+
+    if let Some(op) = prim.metadata::<sdf::ReferenceListOp>(&sdf::FIELD_KEYS.references) {
+        if !op.ordered_elements().is_empty() {
+            summary.prims_with_refs += 1;
+        }
+    }
+
+    if let Some(op) = prim.metadata::<sdf::PayloadListOp>(&sdf::FIELD_KEYS.payload) {
+        if !op.ordered_elements().is_empty() {
+            summary.prims_with_payloads += 1;
+        }
+    }
+
+    for child in prim.children() {
+        summarize_prim(stage, &child, summary);
+    }
+}
+
+fn log_stage_summary(stage_path: &str, stage: &usd::Stage, stage_data: &StageData) {
+    let debug = std::env::var_os("OPENUSD_DEBUG_STAGE").is_some();
+    if !debug && !stage_data.meshes.is_empty() {
+        return;
+    }
+
+    let summary = collect_stage_summary(stage);
+    let instance_count: usize = stage_data.scenes.iter().map(|scene| scene.instances.len()).sum();
+
+    println!("USD stage summary: path={stage_path}");
+    println!(
+        "  assets: scenes={}, meshes={}, instances={}",
+        stage_data.scenes.len(),
+        stage_data.meshes.len(),
+        instance_count
+    );
+    println!(
+        "  prims: total={}, Mesh={}, PointInstancer={}, Xform={}, other={}, root_children={}",
+        summary.total_prims,
+        summary.mesh_prims,
+        summary.instancer_prims,
+        summary.xform_prims,
+        summary.other_prims,
+        summary.root_children
+    );
+    println!(
+        "  arcs: prims with references={}, payloads={}",
+        summary.prims_with_refs, summary.prims_with_payloads
+    );
+    println!(
+        "  mesh data: with points={}, missing points={}, with indices={}, missing indices={}",
+        summary.mesh_with_points,
+        summary.mesh_missing_points,
+        summary.mesh_with_indices,
+        summary.mesh_missing_indices
+    );
+
+    if !summary.mesh_samples.is_empty() {
+        let preview = summary
+            .mesh_samples
+            .iter()
+            .map(|sample| {
+                format!(
+                    "{}(points={}, indices={})",
+                    sample.path, sample.points_len, sample.indices_len
+                )
+            })
+            .collect::<Vec<_>>()
+            .join("; ");
+        println!("  mesh samples: {preview}");
+    }
+}
+
+fn collect_instancer_samples(
+    stage: &usd::Stage,
+    prim: &usd::Prim,
+    samples: &mut Vec<InstancerSample>,
+    max_samples: usize,
+) {
+    if samples.len() >= max_samples {
+        return;
+    }
+
+    if prim.type_name().as_str() == "PointInstancer" {
+        let inst = usd_geom::PointInstancer::define(stage, prim.path().clone());
+
+        let targets = inst.prototypes_rel().targets();
+        let indices_len = read_index_array(&inst.proto_indices_attr()).len();
+        let positions_len = read_vec3_array(&inst.positions_attr()).len();
+        let scales_len = read_vec3_array(&inst.scales_attr()).len();
+        let mut rotations_len = read_quat_attr(&inst.orientations_attr()).len();
+        if rotations_len == 0 {
+            rotations_len = read_quat_attr(&inst.orientationsf_attr()).len();
+        }
+
+        let mut proto_children = 0usize;
+        let mut proto_preview = None;
+        for child in prim.children() {
+            let name_token = child.name();
+            let name = name_token.as_str();
+            if name == "Prototypes" || name == "prototypes" {
+                let mut proto_iter = child.children();
+                if let Some(first) = proto_iter.next() {
+                    proto_preview = Some(first.path().to_string());
+                    proto_children = 1 + proto_iter.count();
+                }
+                break;
+            }
+        }
+
+        let proto_indices_type = inst.proto_indices_attr().type_name();
+        let positions_type = inst.positions_attr().type_name();
+        let scales_type = inst.scales_attr().type_name();
+        let orientations_type = inst.orientations_attr().type_name();
+        let orientationsf_type = inst.orientationsf_attr().type_name();
+
+        samples.push(InstancerSample {
+            path: prim.path().to_string(),
+            targets: targets.len(),
+            indices: indices_len,
+            positions: positions_len,
+            scales: scales_len,
+            rotations: rotations_len,
+            proto_children,
+            proto_indices_type: proto_indices_type.as_str().to_string(),
+            positions_type: positions_type.as_str().to_string(),
+            scales_type: scales_type.as_str().to_string(),
+            orientations_type: orientations_type.as_str().to_string(),
+            orientationsf_type: orientationsf_type.as_str().to_string(),
+            target_preview: targets.get(0).map(|path| path.to_string()),
+            proto_preview,
+        });
+    }
+
+    for child in prim.children() {
+        collect_instancer_samples(stage, &child, samples, max_samples);
+        if samples.len() >= max_samples {
+            return;
+        }
+    }
+}
+
+fn log_instancer_summary(stage: &usd::Stage, stage_data: &StageData) {
+    let instance_count: usize = stage_data.scenes.iter().map(|scene| scene.instances.len()).sum();
+    if instance_count > 0 {
+        return;
+    }
+
+    let mut samples = Vec::new();
+    for child in stage.pseudo_root().children() {
+        collect_instancer_samples(stage, &child, &mut samples, 3);
+        if samples.len() >= 3 {
+            break;
+        }
+    }
+
+    if samples.is_empty() {
+        return;
+    }
+
+    println!("  instancer samples={}", samples.len());
+    for sample in samples {
+        println!(
+            "  instancer: {} targets={} indices={} positions={} scales={} rotations={} proto_children={}",
+            sample.path,
+            sample.targets,
+            sample.indices,
+            sample.positions,
+            sample.scales,
+            sample.rotations,
+            sample.proto_children
+        );
+        println!(
+            "    types: protoIndices={} positions={} scales={} orientations={} orientationsf={}",
+            sample.proto_indices_type,
+            sample.positions_type,
+            sample.scales_type,
+            sample.orientations_type,
+            sample.orientationsf_type
+        );
+        if let Some(target) = sample.target_preview.as_deref() {
+            println!("    first target: {}", target);
+        }
+        if let Some(proto) = sample.proto_preview.as_deref() {
+            println!("    first prototype: {}", proto);
+        }
     }
 }
 
@@ -243,7 +630,7 @@ fn get_local_matrix_degrees(prim: &usd::Prim) -> Option<Matrix4d> {
         }
 
         let op_type = XformOpType::try_from(op.trim_start_matches("xformOp:")).ok();
-        let op_value = prim.attribute(&Token::new(op)).get_value();
+        let op_value = attr_value_or_first_sample(&prim.attribute(&Token::new(op)));
 
         if let (Some(op_type), Some(op_value)) = (op_type, op_value) {
             if let Some(op_transform) = get_op_transform_degrees(op_type, op_value, is_inverse) {
@@ -263,7 +650,7 @@ fn get_local_transform(prim: &usd::Prim) -> Option<Matrix4d> {
     let single_tok = Token::new("xformOp:transform");
     if prim.has_attribute(&single_tok) {
         let attr = prim.attribute(&single_tok);
-        return attr.try_get::<Matrix4d>();
+        return attr_typed_or_first_sample::<Matrix4d>(&attr);
     }
 
     None
@@ -287,10 +674,18 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
             .unwrap_or(false)
     };
 
+    // --- orientation (defaults to rightHanded)
+    let left_handed = {
+        let orient_tok = Token::new("orientation");
+        mesh.prim()
+            .attribute(&orient_tok)
+            .try_get::<Token>()
+            .map(|token| token.as_str() == "leftHanded")
+            .unwrap_or(false)
+    };
+
     // --- positions
-    let positions_arr = mesh
-        .points_attr()
-        .try_get::<vt::Array<gf::Vec3f>>()
+    let positions_arr = attr_typed_or_first_sample::<vt::Array<gf::Vec3f>>(&mesh.points_attr())
         .unwrap_or_default();
     let positions = positions_arr
         .iter()
@@ -298,23 +693,21 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
         .collect();
 
     // --- faceVertexCounts
-    let fvc_arr = mesh
-        .face_vertex_counts_attr()
-        .try_get::<vt::Array<i32>>()
-        .unwrap_or_default();
+    let fvc_arr =
+        attr_typed_or_first_sample::<vt::Array<i32>>(&mesh.face_vertex_counts_attr())
+            .unwrap_or_default();
     let face_vertex_counts = fvc_arr.iter().map(|&c| c as usize).collect();
 
     // --- faceVertexIndices
-    let fvi_arr = mesh
-        .face_vertex_indices_attr()
-        .try_get::<vt::Array<i32>>()
-        .unwrap_or_default();
+    let fvi_arr =
+        attr_typed_or_first_sample::<vt::Array<i32>>(&mesh.face_vertex_indices_attr())
+            .unwrap_or_default();
     let face_vertex_indices = fvi_arr.iter().map(|&i| i as usize).collect();
 
     // --- normals / primvars:normals
     let normals_token = Token::new("normals");
     let normals_attr = mesh.normals_attr();
-    let normals_arr = normals_attr.try_get::<vt::Array<gf::Vec3f>>();
+    let normals_arr = attr_typed_or_first_sample::<vt::Array<gf::Vec3f>>(&normals_attr);
 
     let (normals, normal_indices, normal_interpolation) = if let Some(arr) = normals_arr {
         // direct normals attr
@@ -329,26 +722,22 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
             .map(|token| PrimvarInterpolation::from_token(token.as_str()));
 
         let indices_token = Token::new("normals:indices");
-        let normal_indices = mesh
-            .prim()
-            .attribute(&indices_token)
-            .try_get::<vt::Array<i32>>()
-            .and_then(|idx_arr| {
-                if idx_arr.is_empty() {
-                    None
-                } else {
-                    Some(idx_arr.iter().map(|&i| i as usize).collect())
-                }
-            });
+        let normal_indices =
+            attr_typed_or_first_sample::<vt::Array<i32>>(&mesh.prim().attribute(&indices_token))
+                .and_then(|idx_arr| {
+                    if idx_arr.is_empty() {
+                        None
+                    } else {
+                        Some(idx_arr.iter().map(|&i| i as usize).collect())
+                    }
+                });
 
         (normals, normal_indices, interpolation)
     } else {
         // primvar normals
         let primvar = primvars.primvar(&normals_token);
         if primvar.attr.is_valid() {
-            let normals = primvar
-                .attr
-                .try_get::<vt::Array<gf::Vec3f>>()
+            let normals = attr_typed_or_first_sample::<vt::Array<gf::Vec3f>>(&primvar.attr)
                 .and_then(|arr| {
                     if arr.is_empty() {
                         None
@@ -379,10 +768,7 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
     // --- UVs
     let uv_primvar = primvars.primvar(&Token::new("st"));
     let uvs = if uv_primvar.attr.is_valid() {
-        uv_primvar
-            .attr
-            .try_get::<vt::Array<gf::Vec2f>>()
-            .and_then(|arr| {
+        attr_typed_or_first_sample::<vt::Array<gf::Vec2f>>(&uv_primvar.attr).and_then(|arr| {
                 if arr.is_empty() {
                     None
                 } else {
@@ -404,6 +790,7 @@ fn get_mesh_data(prim: &usd::Prim) -> MeshData {
         normal_interpolation,
         uvs,
         double_sided,
+        left_handed,
     }
 }
 
@@ -554,47 +941,50 @@ fn expand_prim(
         "PointInstancer" => {
             let inst = usd_geom::PointInstancer::define(&stage, prim.path().clone());
 
-            let indices_arr = inst
-                .proto_indices_attr()
-                .try_get::<vt::Array<i32>>()
-                .unwrap_or_default();
-            let indices: Vec<usize> = indices_arr.iter().map(|&i| i as usize).collect();
+            let indices = read_index_array(&inst.proto_indices_attr());
+            let positions = read_vec3_array(&inst.positions_attr());
+            let scales = read_vec3_array(&inst.scales_attr());
 
-            let positions_arr = inst
-                .positions_attr()
-                .try_get::<vt::Array<gf::Vec3f>>()
-                .unwrap_or_default();
-            let positions: Vec<[f32; 3]> =
-                positions_arr.iter().map(|p| [p.x, p.y, p.z]).collect();
+            let mut rotations = read_quat_attr(&inst.orientations_attr());
+            if rotations.is_empty() {
+                rotations = read_quat_attr(&inst.orientationsf_attr());
+            }
 
-            let scales_arr = inst
-                .scales_attr()
-                .try_get::<vt::Array<gf::Vec3f>>()
-                .unwrap_or_default();
-            let scales: Vec<[f32; 3]> = scales_arr.iter().map(|p| [p.x, p.y, p.z]).collect();
+            let proto_children = collect_prototype_children(prim);
 
-            let rotations: Vec<[f32; 4]> = match inst.orientations_attr().get_value() {
-                Some(val) => {
-                    if let Some(arr) = val.get::<vt::Array<gf::Quatf>>() {
-                        arr.iter().map(|q| [q.i, q.j, q.k, q.w]).collect()
-                    } else if let Some(arr) = val.get::<vt::Array<gf::Quatd>>() {
-                        arr.iter()
-                            .map(|q| [q.i as f32, q.j as f32, q.k as f32, q.w as f32])
-                            .collect()
-                    } else if let Some(arr) = val.get::<vt::Array<gf::Quath>>() {
-                        arr.iter()
-                            .map(|q| [q.i.into(), q.j.into(), q.k.into(), q.w.into()])
-                            .collect()
-                    } else {
-                        vec![]
+            let mut targets = inst.prototypes_rel().targets();
+            if targets.is_empty() {
+                targets = proto_children
+                    .iter()
+                    .map(|(_, path)| path.clone())
+                    .collect();
+            } else if !proto_children.is_empty() {
+                let mut remapped = Vec::with_capacity(targets.len());
+                for target in &targets {
+                    let proto = stage.prim_at_path(target.clone());
+                    if proto.is_valid() {
+                        remapped.push(target.clone());
+                        continue;
+                    }
+
+                    let target_name = target.name_token();
+                    if let Some((_, path)) = proto_children
+                        .iter()
+                        .find(|(name, _)| name.as_str() == target_name.as_str())
+                    {
+                        remapped.push(path.clone());
                     }
                 }
-                None => vec![],
-            };
+                if !remapped.is_empty() {
+                    targets = remapped;
+                }
+            }
 
-            let targets = inst.prototypes_rel().targets();
             for (proto_idx, path) in targets.iter().enumerate() {
                 let proto = stage.prim_at_path(path.clone());
+                if !proto.is_valid() {
+                    continue;
+                }
                 for (point_idx, &pi) in indices.iter().enumerate() {
                     if pi == proto_idx {
                         let pos = *positions.get(point_idx).unwrap_or(&[0.0, 0.0, 0.0]);
@@ -627,7 +1017,10 @@ fn build_scene_data(stage: &usd::Stage, root: &usd::Prim, mesh_store: &mut MeshS
 // -------- Entry point --------
 pub fn load_stage(stage_path: &str) -> StageData {
     let stage = usd::Stage::open(stage_path);
-    build_stage_data(&stage)
+    let stage_data = build_stage_data(&stage);
+    log_stage_summary(stage_path, &stage, &stage_data);
+    log_instancer_summary(&stage, &stage_data);
+    stage_data
 }
 
 pub fn build_stage_data(stage: &usd::Stage) -> StageData {

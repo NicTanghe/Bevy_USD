@@ -3,15 +3,26 @@ use bevy::light::DirectionalLightShadowMap;
 use bevy::prelude::*;
 use glam::{DMat4, DQuat, DVec3};
 use openusd_rs::{gf, sdf, tf::Token, usd, usd_geom, vt};
+use std::fs::{self, OpenOptions};
+use std::io::Write;
 use std::path::PathBuf;
 
-use bevy_usd_lib::{UsdPlugin, UsdScene, UsdSceneBundle};
+use bevy_usd_lib::{Usd, UsdPlugin, UsdScene, UsdSceneBundle};
 
-const USD_STAGE_PATH: &str = "USD_scenes/Helmet_bus_cam_3.usdc";
+const USD_STAGE_PATH: &str = "USD_scenes/shed/barn.usdc";
+const LOG_PATH: &str = "viewer_cameras.log";
 
 #[derive(Resource)]
 struct CameraList {
     cameras: Vec<UsdCameraInfo>,
+}
+
+#[derive(Resource)]
+struct UsdRootHandle {
+    handle: Handle<Usd>,
+    spawned: bool,
+    framed: bool,
+    log_timer: Timer,
 }
 
 #[derive(Debug, Clone)]
@@ -25,7 +36,10 @@ struct UsdCameraInfo {
 
 #[derive(Debug, Clone, Copy)]
 enum UsdCameraProjection {
-    Perspective { vertical_fov: f32, aspect_ratio: f32 },
+    Perspective {
+        vertical_fov: f32,
+        aspect_ratio: f32,
+    },
     Orthographic,
 }
 
@@ -65,14 +79,27 @@ fn main() {
         .add_systems(Startup, setup)
         .add_systems(
             Update,
-            (build_camera_ui, camera_button_system, fly_camera_system),
+            (
+                spawn_default_scene,
+                build_camera_ui,
+                fly_camera_system,
+            ),
         )
+        .add_systems(PostUpdate, camera_button_system)
         .run();
 }
 
 fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let scene: Handle<UsdScene> = asset_server.load(format!("{USD_STAGE_PATH}#Scene0"));
-    commands.spawn(UsdSceneBundle::new(scene));
+    init_log();
+    log_line(&format!("viewer_cameras start: {USD_STAGE_PATH}"));
+
+    let usd: Handle<Usd> = asset_server.load(USD_STAGE_PATH);
+    commands.insert_resource(UsdRootHandle {
+        handle: usd,
+        spawned: false,
+        framed: false,
+        log_timer: Timer::from_seconds(1.0, TimerMode::Repeating),
+    });
 
     commands.spawn((
         DirectionalLight {
@@ -93,14 +120,117 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     });
 
     commands.spawn((
+        Camera::default(),
         Camera3d::default(),
+        Projection::Perspective(PerspectiveProjection::default()),
         Transform::from_xyz(-2.5, 4.5, 9.0).looking_at(Vec3::ZERO, Vec3::Y),
         FlyCamera::default(),
         ViewerCamera,
     ));
 
     let cameras = load_usd_cameras(USD_STAGE_PATH);
+    log_line(&format!("usd cameras found: {}", cameras.len()));
     commands.insert_resource(CameraList { cameras });
+}
+
+fn spawn_default_scene(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    usd_assets: Res<Assets<Usd>>,
+    usd_scenes: Res<Assets<UsdScene>>,
+    mut usd_handle: ResMut<UsdRootHandle>,
+    mut viewer_camera: Query<&mut Transform, With<ViewerCamera>>,
+    time: Res<Time>,
+) {
+    if usd_handle.spawned && usd_handle.framed {
+        return;
+    }
+
+    usd_handle.log_timer.tick(time.delta());
+    if usd_handle.log_timer.just_finished() {
+        let state = asset_server.load_state(&usd_handle.handle);
+        log_line(&format!("usd load_state: {:?}", state));
+    }
+
+    if let Some(usd) = usd_assets.get(&usd_handle.handle) {
+        if let Some(scene_handle) = &usd.default_scene {
+            if !usd_handle.spawned {
+                log_line("usd asset loaded. Spawning default scene.");
+                commands.spawn(UsdSceneBundle::new(scene_handle.clone()));
+                usd_handle.spawned = true;
+            }
+
+            if !usd_handle.framed {
+                if let Some(scene) = usd_scenes.get(scene_handle) {
+                    if let Ok(mut transform) = viewer_camera.single_mut() {
+                        if let Some((min, max)) = scene_bounds(scene) {
+                            frame_viewer_camera(&mut transform, min, max);
+                            log_line(&format!(
+                                "framed camera to bounds min={:?} max={:?}",
+                                min, max
+                            ));
+                            usd_handle.framed = true;
+                        }
+                    }
+                }
+            }
+        } else {
+            log_line("usd asset loaded, but default_scene is missing.");
+        }
+    }
+}
+
+fn init_log() {
+    let _ = fs::write(LOG_PATH, "");
+}
+
+fn log_line(message: &str) {
+    if let Ok(mut file) = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(LOG_PATH)
+    {
+        let _ = writeln!(file, "{message}");
+    }
+}
+
+fn scene_bounds(scene: &UsdScene) -> Option<(Vec3, Vec3)> {
+    let mut min = Vec3::splat(f32::INFINITY);
+    let mut max = Vec3::splat(f32::NEG_INFINITY);
+    let mut any = false;
+
+    for instance in &scene.instances {
+        let pos = instance.transform.translation;
+        if !pos.is_finite() {
+            continue;
+        }
+        min = min.min(pos);
+        max = max.max(pos);
+        any = true;
+    }
+
+    if any { Some((min, max)) } else { None }
+}
+
+fn frame_viewer_camera(transform: &mut Transform, min: Vec3, max: Vec3) {
+    let center = (min + max) * 0.5;
+    let extents = max - min;
+    let mut radius = 0.5 * extents.length();
+    if !radius.is_finite() || radius < 0.1 {
+        radius = 1.0;
+    }
+
+    let direction = Vec3::new(0.0, 0.4, 1.0).normalize();
+    let distance = radius * 3.0 + 1.0;
+    *transform = Transform::from_translation(center + direction * distance)
+        .looking_at(center, Vec3::Y);
+    transform.scale = Vec3::ONE;
+}
+
+fn transform_is_finite(transform: &Transform) -> bool {
+    transform.translation.is_finite()
+        && transform.rotation.is_finite()
+        && transform.scale.is_finite()
 }
 
 fn build_camera_ui(
@@ -172,8 +302,13 @@ fn build_camera_ui(
 fn camera_button_system(
     mut interactions: Query<(&Interaction, &CameraButton), Changed<Interaction>>,
     cameras: Res<CameraList>,
+    usd_handle: Res<UsdRootHandle>,
     mut viewer_camera: Query<(&mut Transform, &mut Projection), With<ViewerCamera>>,
 ) {
+    if !usd_handle.spawned {
+        return;
+    }
+
     let Ok((mut transform, mut projection)) = viewer_camera.single_mut() else {
         return;
     };
@@ -186,15 +321,28 @@ fn camera_button_system(
             continue;
         };
 
+        if !transform_is_finite(&camera.transform) {
+            log_line(&format!("camera transform not finite: {}", camera.prim_path));
+            continue;
+        }
+
+        log_line(&format!(
+            "camera data: {} pos={:?} rot={:?} clip={:?} proj={:?}",
+            camera.prim_path,
+            camera.transform.translation,
+            camera.transform.rotation,
+            camera.clipping_range,
+            camera.projection
+        ));
+
         *transform = camera.transform;
-        transform.scale = Vec3::ONE;
-        if transform.rotation.length_squared() <= f32::EPSILON {
-            transform.rotation = Quat::IDENTITY;
-        } else {
-            transform.rotation = transform.rotation.normalize();
+        if !sanitize_transform(&mut transform) {
+            log_line(&format!("camera transform invalid: {}", camera.prim_path));
+            continue;
         }
 
         *projection = projection_from_usd(camera);
+        log_line(&format!("camera selected: {}", camera.prim_path));
     }
 }
 
@@ -210,8 +358,8 @@ fn projection_from_usd(camera: &UsdCameraInfo) -> Projection {
             vertical_fov,
             aspect_ratio,
         } => Projection::Perspective(PerspectiveProjection {
-            fov: vertical_fov,
-            aspect_ratio,
+            fov: sanitize_fov(vertical_fov),
+            aspect_ratio: sanitize_aspect(aspect_ratio),
             near,
             far,
         }),
@@ -222,6 +370,46 @@ fn projection_from_usd(camera: &UsdCameraInfo) -> Projection {
             Projection::Orthographic(projection)
         }
     }
+}
+
+fn sanitize_fov(fov: f32) -> f32 {
+    if fov.is_finite() && fov > 0.001 && fov < std::f32::consts::PI {
+        fov
+    } else {
+        std::f32::consts::FRAC_PI_3
+    }
+}
+
+fn sanitize_aspect(aspect: f32) -> f32 {
+    if aspect.is_finite() && aspect > 0.001 {
+        aspect
+    } else {
+        1.0
+    }
+}
+
+fn sanitize_clipping_range(range: [f32; 2], fallback: [f32; 2]) -> [f32; 2] {
+    if range[0].is_finite() && range[1].is_finite() {
+        range
+    } else {
+        fallback
+    }
+}
+
+fn sanitize_transform(transform: &mut Transform) -> bool {
+    if !transform_is_finite(transform) {
+        *transform = Transform::IDENTITY;
+        return false;
+    }
+
+    transform.scale = Vec3::ONE;
+    if !transform.rotation.is_finite() || transform.rotation.length_squared() <= f32::EPSILON {
+        transform.rotation = Quat::IDENTITY;
+    } else {
+        transform.rotation = transform.rotation.normalize();
+    }
+
+    true
 }
 
 fn fly_camera_system(
@@ -245,6 +433,7 @@ fn fly_camera_system(
         let pitch = -delta.y * settings.sensitivity;
         transform.rotation = Quat::from_rotation_y(yaw) * transform.rotation;
         transform.rotation = transform.rotation * Quat::from_rotation_x(pitch);
+        transform.rotation = transform.rotation.normalize();
     }
 
     let mut axis = Vec3::ZERO;
@@ -309,10 +498,19 @@ fn resolve_stage_path(path: &str) -> Option<PathBuf> {
     None
 }
 
-fn collect_cameras(stage: &usd::Stage, prim: &usd::Prim, parent_xf: DMat4, out: &mut Vec<UsdCameraInfo>) {
+fn collect_cameras(
+    stage: &usd::Stage,
+    prim: &usd::Prim,
+    parent_xf: DMat4,
+    out: &mut Vec<UsdCameraInfo>,
+) {
     let (local, reset_stack) = get_local_transform(prim);
     let local = local.unwrap_or(DMat4::IDENTITY);
-    let world_xf = if reset_stack { local } else { parent_xf * local };
+    let world_xf = if reset_stack {
+        local
+    } else {
+        parent_xf * local
+    };
 
     if prim.type_name().as_str() == "Camera" {
         out.push(get_camera_data(prim, world_xf));
@@ -359,19 +557,14 @@ fn get_camera_data(prim: &usd::Prim, xf: DMat4) -> UsdCameraInfo {
     };
 
     let mut transform = transform_from_dmat4(xf);
-    transform.scale = Vec3::ONE;
-    if transform.rotation.length_squared() <= f32::EPSILON {
-        transform.rotation = Quat::IDENTITY;
-    } else {
-        transform.rotation = transform.rotation.normalize();
-    }
+    sanitize_transform(&mut transform);
 
     UsdCameraInfo {
         prim_path,
         prim_name,
         transform,
         projection,
-        clipping_range,
+        clipping_range: sanitize_clipping_range(clipping_range, DEFAULT_CLIPPING_RANGE),
     }
 }
 
@@ -382,6 +575,20 @@ fn transform_from_dmat4(matrix: DMat4) -> Transform {
         cols_f32[idx] = *value as f32;
     }
     Transform::from_matrix(Mat4::from_cols_array(&cols_f32))
+}
+
+fn dmat4_from_usd_matrix(matrix: &gf::Matrix4d) -> DMat4 {
+    let row_major = DMat4::from_cols_array_2d(&matrix.data).transpose();
+    let col_major = DMat4::from_cols_array_2d(&matrix.data);
+
+    let row_len = row_major.w_axis.truncate().length_squared();
+    let col_len = col_major.w_axis.truncate().length_squared();
+
+    if col_len > row_len * 1.01 && col_len > 1e-10 {
+        col_major
+    } else {
+        row_major
+    }
 }
 
 fn get_camera_projection(prim: &usd::Prim) -> UsdCameraProjection {
@@ -496,7 +703,11 @@ impl TryFrom<&str> for XformOpType {
     }
 }
 
-fn get_op_transform_degrees(op_type: XformOpType, value: vt::Value, is_inverse: bool) -> Option<DMat4> {
+fn get_op_transform_degrees(
+    op_type: XformOpType,
+    value: vt::Value,
+    is_inverse: bool,
+) -> Option<DMat4> {
     use XformOpType::*;
 
     let get_scalar = || -> Option<f64> {
@@ -588,8 +799,12 @@ fn get_op_transform_degrees(op_type: XformOpType, value: vt::Value, is_inverse: 
         }),
         Transform => {
             let mat = value.get::<gf::Matrix4d>()?;
-            let mat = DMat4::from_cols_array_2d(&mat.data);
-            if is_inverse { mat.inverse() } else { mat }
+            let mat = dmat4_from_usd_matrix(&mat);
+            if is_inverse {
+                mat.inverse()
+            } else {
+                mat
+            }
         }
     })
 }
@@ -642,7 +857,7 @@ fn get_local_transform(prim: &usd::Prim) -> (Option<DMat4>, bool) {
         let attr = prim.attribute(&single_tok);
         let value = get_attr_value(&attr).and_then(|v| v.get::<gf::Matrix4d>());
         if let Some(mat) = value {
-            let mat = DMat4::from_cols_array_2d(&mat.data);
+            let mat = dmat4_from_usd_matrix(&mat);
             return (Some(mat), reset_stack);
         }
     }

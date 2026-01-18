@@ -1,0 +1,4 @@
+warning: unused manifest key: target.x86_64-pc-windows-msvc.linker
+   Compiling bevy_usd_lib v0.1.0 (C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing)
+    Finished `dev` profile [optimized + debuginfo] target(s) in 11.62s
+     Running `target\debug\examples\viewer_cameras.exe`

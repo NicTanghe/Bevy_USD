@@ -1,5 +1,6 @@
 mod labels;
 mod loader;
+mod instancing;
 mod open_rs_loader;
 mod spawn;
 mod types;
@@ -23,6 +24,7 @@ impl Plugin for UsdPlugin {
         app.init_asset::<Usd>()
             .init_asset::<UsdScene>()
             .register_asset_loader(UsdLoader)
+            .add_plugins(instancing::UsdInstancingPlugin)
             .add_systems(Update, spawn::spawn_usd_scenes);
     }
 }

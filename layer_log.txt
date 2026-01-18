@@ -1,0 +1,2055 @@
+warning: unused manifest key: target.x86_64-pc-windows-msvc.linker
+    Finished `dev` profile [optimized + debuginfo] target(s) in 0.50s
+     Running `target\debug\examples\viewer_cameras.exe`
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_roof.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  subLayers resolved: Array { data: [] }
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: [] }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_cameras.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  subLayers resolved: Array { data: [] }
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_cameras.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers resolved: Array { data: [] }
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_brickmortar.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./geo.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_cameras.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed/barn.usdc
+  root fields: ["framesPerSecond", "timeCodesPerSecond", "metersPerUnit", "subLayerOffsets", "subLayers", "startTimeCode", "endTimeCode", "upAxis"]
+  subLayers raw: Value { store: StringArray(Array { data: ["./stage/scene_1.usd"] }) }
+  subLayerOffsets raw: Value { store: RetimingArray(Array { data: [Retiming { offset: 0.0, scale: 1.0 }] }) }
+  subLayers resolved: Array { data: ["./stage/scene_1.usd"] }
+  subLayer: ./stage/scene_1.usd -> C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd (exists=true)
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage/scene_1.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }
+LayerStack: layer=C:\Users\Nicol\dev\rust\usd\pass2\Bevy_USD_composing\assets\USD_scenes/shed\./stage\./graft_cameras.usd
+  root fields: ["timeCodesPerSecond", "framesPerSecond", "metersPerUnit", "primChildren", "upAxis"]
+  subLayers resolved: Array { data: [] }

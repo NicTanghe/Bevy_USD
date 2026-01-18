@@ -13,6 +13,7 @@ fn triangulate(
     positions_ref: &[Vec3],
     normals_ref: &[Vec3],
     uvs_ref: &[Vec2],
+    flip_winding: bool,
 ) -> (Vec<[f32; 3]>, Vec<[f32; 3]>, Vec<[f32; 2]>, Vec<u32>) {
     let mut new_positions = Vec::new();
     let mut new_normals = Vec::new();
@@ -22,11 +23,19 @@ fn triangulate(
     let mut wedge_idx = 0;
     for &n in counts {
         for i in 0..(n.saturating_sub(2)) {
-            let idxs = [
-                indices[wedge_idx] as usize,
-                indices[wedge_idx + i + 2] as usize,
-                indices[wedge_idx + i + 1] as usize,
-            ];
+            let idxs = if flip_winding {
+                [
+                    indices[wedge_idx] as usize,
+                    indices[wedge_idx + i + 1] as usize,
+                    indices[wedge_idx + i + 2] as usize,
+                ]
+            } else {
+                [
+                    indices[wedge_idx] as usize,
+                    indices[wedge_idx + i + 2] as usize,
+                    indices[wedge_idx + i + 1] as usize,
+                ]
+            };
             for &idx in &idxs {
                 tri_indices.push(new_positions.len() as u32);
                 new_positions.push(positions_ref[idx].to_array());
@@ -226,6 +235,12 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
     let wedge_positions: Vec<Vec3> = fv_idx.iter().map(|&i| positions_vtx[i]).collect();
 
     let wedge_normals = expand_normals_to_wedges(mesh, &positions_vtx, &fv_idx);
+    let mut wedge_normals = wedge_normals;
+    if mesh.left_handed {
+        for normal in &mut wedge_normals {
+            *normal = -*normal;
+        }
+    }
 
     let wedge_uvs: Vec<Vec2> = if let Some(uvs) = &mesh.uvs {
         if uvs.len() == fv_idx.len() {
@@ -253,11 +268,12 @@ pub fn meshdata_to_bevy(mesh: &MeshData) -> Mesh {
         &wedge_positions,
         &wedge_normals,
         &wedge_uvs,
+        mesh.left_handed,
     );
 
     Mesh::new(
         PrimitiveTopology::TriangleList,
-        RenderAssetUsages::default(),
+        RenderAssetUsages::RENDER_WORLD,
     )
     .with_inserted_attribute(Mesh::ATTRIBUTE_POSITION, flat_positions)
     .with_inserted_attribute(Mesh::ATTRIBUTE_NORMAL, flat_normals)

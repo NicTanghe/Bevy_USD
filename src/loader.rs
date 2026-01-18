@@ -1,5 +1,8 @@
 use std::collections::HashMap;
+use std::fs::OpenOptions;
+use std::io::Write;
 use std::path::{Path, PathBuf};
+use std::time::Instant;
 
 use bevy::asset::{AssetLoader, LoadContext};
 use bevy::prelude::{Color, Handle, Mat4, Mesh, StandardMaterial, Transform};
@@ -22,6 +25,7 @@ pub enum UsdLoadError {
     Io(std::io::Error),
     MissingFile(String),
     StagePanic(String),
+    BuildPanic(String),
 }
 
 impl std::fmt::Display for UsdLoadError {
@@ -30,6 +34,7 @@ impl std::fmt::Display for UsdLoadError {
             UsdLoadError::Io(err) => write!(f, "io error: {err}"),
             UsdLoadError::MissingFile(path) => write!(f, "usd file not found: {path}"),
             UsdLoadError::StagePanic(path) => write!(f, "failed to load usd stage: {path}"),
+            UsdLoadError::BuildPanic(path) => write!(f, "failed to build usd assets: {path}"),
         }
     }
 }
@@ -53,12 +58,29 @@ impl AssetLoader for UsdLoader {
         settings: &Self::Settings,
         load_context: &mut LoadContext<'_>,
     ) -> Result<Self::Asset, Self::Error> {
+        let start = Instant::now();
         let stage_path = resolve_stage_path(load_context, settings)?;
         let stage_path_str = stage_path.to_string_lossy().to_string();
+        log_loader(&format!("load start: {stage_path_str}"));
+
         let stage_data = std::panic::catch_unwind(|| load_stage(&stage_path_str))
             .map_err(|_| UsdLoadError::StagePanic(stage_path_str.clone()))?;
 
-        build_assets(stage_data, load_context)
+        log_loader(&format!(
+            "stage loaded in {:?}: meshes={} scenes={}",
+            start.elapsed(),
+            stage_data.meshes.len(),
+            stage_data.scenes.len()
+        ));
+
+        let build_start = Instant::now();
+        let result = std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
+            build_assets(stage_data, load_context)
+        }))
+        .map_err(|_| UsdLoadError::BuildPanic(stage_path_str.clone()))?;
+
+        log_loader(&format!("assets built in {:?}", build_start.elapsed()));
+        result
     }
 
     fn extensions(&self) -> &[&str] {
@@ -108,9 +130,18 @@ fn build_assets(
     let mut materials = HashMap::default();
     let mut prim_names = HashMap::default();
 
-    for mesh_data in &stage_data.meshes {
+    for (idx, mesh_data) in stage_data.meshes.iter().enumerate() {
         let mesh_label = mesh_label_for_path(&mesh_data.prim_path);
         let material_label = material_label_for_path(&mesh_data.prim_path);
+
+        log_loader(&format!(
+            "mesh {}/{}: {} points={} indices={}",
+            idx + 1,
+            stage_data.meshes.len(),
+            mesh_data.prim_path,
+            mesh_data.positions.len(),
+            mesh_data.face_vertex_indices.len()
+        ));
 
         let mesh = meshdata_to_bevy(mesh_data);
         let mesh_handle = load_context.add_labeled_asset(mesh_label.clone(), mesh);
@@ -153,6 +184,20 @@ fn build_assets(
         prim_names,
         default_scene,
     })
+}
+
+fn log_loader(message: &str) {
+    if std::env::var_os("OPENUSD_DEBUG_STAGE").is_none() {
+        return;
+    }
+
+    if let Ok(mut file) = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open("usd_loader.log")
+    {
+        let _ = writeln!(file, "{message}");
+    }
 }
 
 fn scene_label_for_scene(scene: &crate::open_rs_loader::SceneData) -> String {

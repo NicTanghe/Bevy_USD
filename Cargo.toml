@@ -19,8 +19,9 @@ path = "src/lib.rs"
 [dependencies]
 bevy = { version = "0.17", features = ["dynamic_linking"]}
 glam = "0.30.5"
-openusd_rs = { package = "openusd-rs", path = "../openusd-rs" }
+openusd_rs = { package = "openusd-rs", path = "../openusd-rs-2" }
 serde = { version = "1", features = ["derive"] }
+bytemuck = { version = "1", features = ["derive"] }
 
 [dev-dependencies]
 bevy_panorbit_camera = "0.33.0"
