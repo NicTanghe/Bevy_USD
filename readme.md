@@ -1,3 +1,7 @@
+Just use https://github.com/openusd-rs/bevy_openusd
+
+Insteqd i will archive this later
+
 # bevy_usd_lib
 
 Bevy USD loader with labeled sub-assets and explicit spawn control.
