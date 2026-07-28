@@ -1,6 +1,6 @@
 Just use https://github.com/openusd-rs/bevy_openusd
 
-Insteqd i will archive this later
+Instead i will archive this later
 
 # bevy_usd_lib
 
